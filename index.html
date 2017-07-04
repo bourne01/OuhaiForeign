@@ -2,39 +2,27 @@
 <html lang="zh-cn">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">                 
+        <link rel="stylesheet" href="css/ohforeign.css">
+        <script src="framework/jQuery-v1.8.3.js"></script>
         <script src="framework/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="framework/bootstrap.min.css"></link>           
-        <link rel="stylesheet" href="css/index.css" >
-        <script src="framework/jQuery-v1.8.3.js"></script>  
+        <link rel="stylesheet" href="framework/bootstrap.min.css"></link>    
         <script src="framework/AngularJS-v1.4.14.js"></script>
         <script src="framework/AngularJS-v1.4.14-Cookies.js"></script>  
         <script src="framework/angular-ui-router-v0.4.2.js"></script>           
         <link href="framework/bootstrap-datetimepicker.min.css" rel="stylesheet">
         <script src="framework/bootstrap-datetimepicker.min.js"></script>
         <script src="framework/bootstrap-datetimepicker.zh-CN.js"></script>
-        <script src="framework/bootstrap.min.js"></script>
         <script src="framework/ngDraggable.js"></script>       
         <script src="js/app.js"></script> 
         <script src="js/controllers.js"></script>
         <script src="js/directives.js"></script>  
     </head>
-    <body ng-app="flApp">
+    <body ng-app="foreignApp">
         <header>
-            <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <img alt="Ouhai Foreign Languages School" src="imgs/logo.png">
-                </a>
-                
-                </div>
-                <span class="navbar-text text-center">Signed in as Mark Otto</span>
-            </div>
-            </nav>
+            <div ui-view='header'></div>
         </header>
         <div class="content">
-            <!--<div ng-include="'navside.html'"></div>-->
             <div ui-view='navside'></div>
             <div ui-view></div>           
         </div>
