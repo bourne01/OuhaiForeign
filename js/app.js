@@ -24,8 +24,10 @@ flApp.config(function($stateProvider,$urlRouterProvider){
                 },
                 'navside':{
                     templateUrl:'tpls/navside.html'
+                },
+                '':{
+                    templateUrl:'tpls/test.html'
                 }
-
             }
         })    
 })
