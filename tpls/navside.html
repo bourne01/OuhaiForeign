@@ -1,0 +1,28 @@
+<div class="nav-side" ng-controller="NavCtrl">
+        <a ui-sref="home" ng-style="{{homeTxtStyle}}"><div class='nav-item' nav-direct id="home">
+            <!--<a ui-sref="home"><img src="imgs/index-side.jpg">首页</a>-->
+            <img src="{{imgHome}}">首页
+        </div></a>
+        <a ui-sref="leave" ng-style="{{leaveTxtStyle}}"><div class="nav-item" nav-direct id="leave" >
+            <!--<a ui-sref="leave"><img src="imgs/leave.jpg">请假管理</a>-->
+            <img src="{{imgLeave}}">请假管理
+        </div></a>
+        <div class="attendance">
+            <div class="nav-item {{attTextStyle}}" id="attendance" att-direct ng-click="changeAttIcon()">
+                <!--<img id="att.img" src="imgs/att.jpg">考勤<img id="menu.img" class="dropdown" src="imgs/down-menu.png">-->
+                <img id="att.img" src="{{imgAtt}}">考勤<img id="menu.img" class="dropdown" src="{{imgDropMenu}}">
+            </div>
+            <ul>
+                <a ui-sref="attmanage"><li  id="attmanage" class="{{attManageTextStyle}}" nav-direct>考勤管理</li></a>
+                <a ui-sref="attreport"><li  id="attreport" class="{{attReportTextStyle}}" nav-direct>考勤报告</li></a>
+            </ul>
+        </div>
+        <a ui-sref="swapleave" ng-style="{{swLeaveTxtStyle}}"><div class="nav-item"  id="swapleave" nav-direct >
+            <!--<a ui-sref="swapleave"> <img src="imgs/swap-leave.jpg">调休</a>-->
+             <img src="{{imgSwapLeave}}">调休
+        </div></a>
+         <a ui-sref="swapclass" ng-style="{{swClassTxtStyle}}"><div class="nav-item"  id="swapclass" nav-direct>
+            <!--<a ui-sref="swapclass"><img src="imgs/swap-class.jpg" >调代课</a>-->
+           <img src="{{imgSwapClass}}" >调代课
+        </div></a>
+</div>
