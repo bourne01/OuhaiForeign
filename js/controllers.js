@@ -13,7 +13,7 @@ baseMod
     .controller('NavCtrl',['$scope',function($scope){
 
     }])
-    .controller('TestCtrl',['$scope',function($scope){
+    .controller('CourseTakeCtrl',['$scope',function($scope){
         $scope.srcClassList = ['one','two','three','four','five'];
         $scope.tarClassList = [];
         $scope.addToTarget = function(srcClass){
