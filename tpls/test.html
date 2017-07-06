@@ -2,4 +2,219 @@
     <div class="nav-text">
         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>  当前位置：课程管理 > 课程列表
     </div>
+    <div class="form-inline">
+        <div class="rows">
+            <div class="col-md-6">
+                <div class="form-group grade">
+                    <label for="sift" >筛选：</label>
+                    <select class="form-control input-att" id="sift" ng-model="grade" ng-init="grade='000000'">
+                        <option value="000000">全部年级</option>
+                        <option ng-repeat="grade in gradeList" value="{{$index+1}}">{{grade}}</option>
+                    </select>
+                </div>                
+                <div class="form-group grade-type">
+                    <select class="form-control input-att" ng-model="gradeType" ng-init="gradeType='000000'">
+                        <option value="000000">全部类别</option>
+                        <option ng-repeat="gradeType in gradeTypeList" value="{{$index+1}}">{{gradeType}}</option>
+                    </select>
+                </div>
+                <div class="form-group course-status">
+                    <select class="form-control input-att" ng-model="courseStatus" ng-init="courseStatus='000000'">
+                        <option value="000000">全部状态</option>
+                        <option ng-repeat="courseStatus in courseStatusList" value="{{$index+1}}">{{courseStatus}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="from-group teachername">
+                    <div class="input-group search1">
+                        <input type="text" class="form-control">                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="from-group">
+                    <div class="input-group search2">
+                        <input type="text" class="form-control">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>    
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <div class="clearfix"></div>
+    <div class="">
+        <div class="rows">
+            <div class="col-md-1 courseadd">
+                <button class="btn btn-default"><img src="imgs/home/add.png"> 新增课程</button>
+            </div>
+            <div class="col-md-2 col-md-offset-9">
+                <div class="viewmode">
+                    <span class="title"><img src="imgs/home/title.png"></span>
+                    <span class="list"><img src="imgs/home/list.png"></span> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="courseview">
+        <div class="rows">
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                    <div class="is-approval">
+                        <img src="imgs/home/approved.png">
+                    </div>
+                </div>
+            </div>
+           <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                     <div class="is-approval">
+                        <img src="imgs/home/unapproved.png">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>            
+        </div>
+
+         <div class="rows">
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>
+           <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>            
+        </div>
+        <div class="rows">
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>
+           <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="course">
+                    <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
+                    <div class="coursename">趣味物理</div>
+                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span>
+                </div>
+            </div>            
+        </div>
+    </div>
+
 </div>

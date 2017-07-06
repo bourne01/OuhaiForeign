@@ -23,8 +23,14 @@
             <div ui-view='header'></div>
         </header>
         <div class="content">
-            <div ui-view='navside'></div>
-            <div ui-view></div>           
+            <div class="rows">
+                <div class="col-md-1 col-lg-1">
+                    <div ui-view='navside'></div>
+                </div>
+                <div class="col-md-11 col-lg-11">
+                    <div ui-view></div>
+                </div>
+            </div>           
         </div>
     </body>
 </html>
