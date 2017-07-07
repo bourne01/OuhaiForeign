@@ -1,0 +1,111 @@
+<div class="courseadd" ng-controller="CourseAddCtrl">
+    <div class="nav-text">
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>  当前位置：课程管理 > 课程列表 > 新增课程
+    </div>
+    <div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#courseinfo" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#subcourse1" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#subcourse2" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane courseinfo active" id="courseinfo">
+            <div class="basicinfo">
+                <div class="rows">
+                    <div class="col-md-7">
+                        <div class="rows">
+                            <div class="basicinfo-txt">课程基本信息</div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">课程名次：</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">课程类别：</label>
+                                    <select class="form-control">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rows">
+                            <div class="col-sm-12">
+                                <label for="">课程简介：</label>
+                                <textarea class="form-control" rows="5" placeholder="限三百字以内"></textarea>
+                            </div>
+                        </div>
+                        <div class="rows">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">课程教师：</label>
+                                    <select class="form-control">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="rows">
+                                    <div class="col-xs-6">
+                                        <div class="form-group">
+                                            <label for="">从：</label>
+                                            <select class="form-control">
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group">
+                                            <label for="">到：</label>
+                                            <select class="form-control">
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="coursecover">
+                        <img src="imgs/coursecovers/coursecross.png">
+                    </div>
+                    <div class="coursecover-txt">
+                        设置课程封面
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="rows">
+                <div class="col-md-12 term-wrap">
+                    <label for="">适用学期：</label>
+                    <span class="term">
+                        2017年上半学期
+                        <div class="termchecked">
+                            <img src="imgs/home/termchecked.png">
+                        </div>
+                    </span>
+                    <span class="term">2017年下半学期</span>
+                    <span class="term">2018年上半学期</span>
+                    <span class="term">2018年下半学期</span>
+                    <span class="term">2019年上半学期</span>
+                    <span class="term">2019年下半学期</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div role="tabpanel" class="tab-pane" id="subcourse1">subcourse1</div>
+    <div role="tabpanel" class="tab-pane" id="subcourse2">subcourse2</div>
+
+</div>
+</div>

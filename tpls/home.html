@@ -7,13 +7,13 @@
             <div class="col-md-6">
                 <div class="form-group grade">
                     <label for="sift" >筛选：</label>
-                    <select class="form-control input-att" id="sift" ng-model="grade" ng-init="grade='000000'">
+                    <select class="form-control" id="sift" ng-model="grade" ng-init="grade='000000'">
                         <option value="000000">全部年级</option>
                         <option ng-repeat="grade in gradeList" value="{{$index+1}}">{{grade}}</option>
                     </select>
                 </div>                
                 <div class="form-group grade-type">
-                    <select class="form-control input-att" ng-model="gradeType" ng-init="gradeType='000000'">
+                    <select class="form-control" ng-model="gradeType" ng-init="gradeType='000000'">
                         <option value="000000">全部类别</option>
                         <option ng-repeat="gradeType in gradeTypeList" value="{{$index+1}}">{{gradeType}}</option>
                     </select>
@@ -57,7 +57,7 @@
         </div>
     </div>
     <div class="clearfix"></div>
-    <div class="courseview">
+    <div class="coursetitleview">
         <div class="rows">
             <div class="col-md-2">
                 <div class="course">

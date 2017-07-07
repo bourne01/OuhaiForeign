@@ -48,7 +48,7 @@
     margin: 0 auto;
 }
 /*
-*课程展示区
+*课程展示区---标题视图
 */
 .coursetake .rows{
     margin-top:10px;
@@ -111,10 +111,10 @@
     top:0;
     right:0;
 } 
-.courseview .col-md-2{
+.coursetitleview .col-md-2{
     margin-bottom:20px;
 }
-.courseview .img-circle{
+.coursetitleview .img-circle{
     width:30px;
     margin-left:10px;
 }
@@ -130,4 +130,90 @@
     margin-top:-10px;
     padding-left:500px;
 }
-
+/*
+*课程展示区---列表视图
+*/
+.courselistview{
+    margin-top:20px;
+}
+.courselistview thead th{
+    background-color: #f4f4f4
+}
+.courselistview tr:nth-child(even){    
+    background-color: #f4f4f4
+}
+.courselistview tr:hover{
+    background-color: #e2f9ff;
+    
+}
+.courselistview .first-col{
+    width:80px;
+}
+.courselistview th{
+    text-align: center;
+}
+/*
+*新增课程
+*/
+.nav-tabs .active a{
+    background-color: #2bbb59!important;
+}
+.basicinfo .col-sm-6 .form-control{
+    width:237px;
+    display:inline-block;
+}
+.basicinfo-txt{
+    margin-left:15px;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+.basicinfo .col-sm-12 .form-control{
+    width:579px;
+    display:inline-block;
+    margin-bottom:15px;
+}
+.basicinfo .col-xs-6{
+    padding-right: 0;
+    padding-left: 0;
+}
+.basicinfo .col-xs-6 .form-control{
+    width:123px;
+    display:inline-block;
+}
+.basicinfo .coursecover{
+    margin-top:30px;
+    margin-left:15px;
+    border:2px dashed #cccccc;
+    height:195px;
+    width:174px;
+}
+.basicinfo .coursecover-txt{
+    width:193px;
+    text-align: center;
+}
+.basicinfo .coursecover img{
+    display: block;
+    margin:73px auto;
+}
+.term-wrap{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.basicinfo .term{
+    display: inline-block;
+    padding-right:3px;
+    padding-left:3px;
+    height:34px;
+    line-height: 34px;
+    font-family:Microsoft Yahei;
+    font-size:12px;
+    margin-right:10px;
+    border:1px solid #2bbb59;
+    border-radius: 3px;
+    position: relative;
+}
+.basicinfo .term .termchecked{
+    position: absolute;
+    top:-12px;
+    right:0;
+}

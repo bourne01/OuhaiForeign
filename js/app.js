@@ -14,7 +14,7 @@ flApp.run(function($rootScope, $state, $stateParams){
  * 配置页面路由信息
  */
 flApp.config(function($stateProvider,$urlRouterProvider){
-     $urlRouterProvider.otherwise('index');
+     //$urlRouterProvider.otherwise('index');
      $stateProvider
         .state('index',{
             url:'/index',
@@ -26,8 +26,36 @@ flApp.config(function($stateProvider,$urlRouterProvider){
                     templateUrl:'tpls/navside.html'
                 },
                 '':{
-                    templateUrl:'tpls/test.html'
+                    templateUrl:'tpls/home.html'
                 }
             }
-        })    
+        })
+        .state('homelist',{
+            url:'/homelist',
+            views:{
+                'header':{
+                    templateUrl:'tpls/header.html'
+                },
+                'navside':{
+                    templateUrl:'tpls/navside.html'
+                },
+                '':{
+                    templateUrl:'tpls/homelist.html'
+                }
+            }
+        })
+        .state('courseadd',{
+            url:'/courseadd',
+            views:{
+                'header':{
+                    templateUrl:'tpls/header.html'
+                },
+                'navside':{
+                    templateUrl:'tpls/navside.html'
+                },
+                '':{
+                    templateUrl:'tpls/courseadd.html'
+                }
+            }
+        })       
 })
