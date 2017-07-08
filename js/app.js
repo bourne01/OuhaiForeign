@@ -2,7 +2,7 @@
  *网站的入口应用程序，提供网站全局初始化和页面路由服务
  */
 //var flApp = angular.module('flApp',['ui.router','BaseMod','CourseShowMod','CourseTakeMod','EnrollMod','ReviewMod']);
-var flApp = angular.module('foreignApp',['ui.router','BaseMod']);
+var flApp = angular.module('foreignApp',['ui.router','BaseMod','CourseMod']);
 console.log(flApp);
 /**
  * 定义全局信息

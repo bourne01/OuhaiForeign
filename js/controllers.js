@@ -25,3 +25,8 @@ baseMod
 /**
  * 
  */
+var courseMod = angular.module('CourseMod',[]);
+courseMod
+    .controller('CourseAddCtrl',['$scope',function($scope){
+        
+    }])

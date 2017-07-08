@@ -47,6 +47,13 @@
     width:1366px;
     margin: 0 auto;
 }
+.nav-text{
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    border-bottom:1px solid #e5e5e5;
+    margin-bottom: 10px;
+}
 /*
 *课程展示区---标题视图
 */
@@ -155,11 +162,40 @@
 /*
 *新增课程
 */
+.courseadd .nav-tabs{
+    padding-left:20px;
+    border-bottom: 1px solid #2bbb59;
+    padding-right:20px;
+}
 .nav-tabs .active a{
     background-color: #2bbb59!important;
 }
+.nav-tabs a{
+    border-top: 1px solid #dddddd!important;
+    border-right: 1px solid #dddddd!important;
+    border-left: 1px solid #dddddd!important;
+}
+.basicinfo {
+    margin-left:20px;
+    border:1px solid #dddddd;
+    margin-right:20px;
+    padding-bottom:10px;
+    margin-bottom:10px;
+}
+.basicinfo .col-md-7,.basicinfo .col-md-5{
+    padding-left:0;
+}
+.basicinfo .col-6{
+    width:49%;
+    padding-left:15px;
+    display: inline-block;
+}
+.basicinfo .col-6 .form-control{
+    width:240px;
+    display:inline-block;
+}
 .basicinfo .col-sm-6 .form-control{
-    width:237px;
+    width:232px;
     display:inline-block;
 }
 .basicinfo-txt{
@@ -167,8 +203,11 @@
     margin-top:20px;
     margin-bottom: 20px;
 }
+.basicinfo .col-sm-12{
+    padding-right: 5px!important;
+}
 .basicinfo .col-sm-12 .form-control{
-    width:579px;
+    width:575px;
     display:inline-block;
     margin-bottom:15px;
 }
@@ -176,8 +215,12 @@
     padding-right: 0;
     padding-left: 0;
 }
-.basicinfo .col-xs-6 .form-control{
-    width:123px;
+.basicinfo .col-xs-7,.basicinfo .col-xs-5{
+    padding-right:0;
+    padding-left:0;
+}
+.basicinfo .col-xs-7 .form-control,.basicinfo .col-xs-5 .form-control{
+    width:95px;
     display:inline-block;
 }
 .basicinfo .coursecover{
@@ -216,4 +259,68 @@
     position: absolute;
     top:-12px;
     right:0;
+}
+/*
+*选课设置与管理选项卡
+*/
+.set-tab{
+    border:1px solid #dddddd;
+    border-bottom:1px solid #bde3c9!important;
+    background-color: #d5f1de;
+}
+.courseset{
+    padding-left:30px;
+}
+.classlist{
+    margin-left:0;
+    padding-left:0;
+    list-style-type:none;    
+      
+}
+.overflow-scroll{
+    height:300px;
+    overflow-y: auto;    
+}
+.overflow-scroll li:nth-child(even){
+    background-color: #f8f8f8   ;
+}
+.classlist .classlist-txt{
+    text-align: center;  
+    background-color: #eeeeee;
+}
+.classlist li{
+    height:25px;
+    line-height: 25px;
+    border:1px solid #dddddd;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: Microsoft Yahei;
+    font-size:12px;
+}
+.classaction{
+    list-style-type: none;
+    margin-left:0;
+    padding-left:0;
+    height:300px; 
+    margin-top:30px;    
+}
+.classaction li{
+     height:45px;
+     line-height:40px;
+     padding-left:50px;
+     padding-right:15px;
+}
+.courseset .col-md-2{
+    padding-left:0;
+    padding-right:0;
+}
+.classaction .btn{
+    width:100px;
+}
+.creditlimit{
+
+}
+.creditlimit .form-control,.stusum .form-control{
+    width:100px;
+    display: inline-block;
 }
