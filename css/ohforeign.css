@@ -348,13 +348,14 @@
     display: inline-block;
 }
 .priorstudent{
-    margin-left:20px;
-    margin-bottom:30px;
+    margin-left: -30px;
+    margin-bottom: 30px;
     border-bottom: 1px solid #dddddd;
     border-right: 1px solid #dddddd;
     border-left: 1px solid #dddddd;
-    padding-top:10px;
-    padding-bottom:5px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 28px;
 }
 .priorstudent .close{
     float:left!important;
@@ -416,4 +417,77 @@
 }
 .timeset .col-md-3{
     margin-right:-65px;
+}
+/*
+*学生管理选项卡 
+*/
+.mask{
+    z-index: 1;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    opacity:0.4;
+    filter:alpha(opacity=40);
+    display:none;
+}
+.pop-addstudent{
+    width:1084px;
+    /*height:720px;*/
+    border:1px solid #2bbb59;
+    position:fixed;
+    top: 18%;
+    left: 16%;
+    background-color: #fff;
+    z-index: 2;
+    display:none;
+}
+.pop-addstudent .title{
+    background-color:#2bbb59;
+    
+    height:42px;
+    line-height: 42px;
+    color:#fff;
+    width:1084px;
+    
+}
+.pop-addstudent .col-md-1{
+    padding-left: 50px;
+}
+.pop-addstudent .col-md-2{
+    padding-right:0;
+}
+.pop-addstudent .stu-sift{
+    margin-top:10px;
+}
+.pop-addstudent .stu-sift .col-md-2 .form-control{
+    display:inline-block;
+    width:117px;
+}
+.pop-addstudent .stu-detail{
+    margin-right:15px;
+    margin-left:15px;
+}
+.stu-sift .col-md-3 {
+    margin-left: -19px;
+}
+.stu-content thead th{
+    background-color: #eeeeee;
+    text-align: center;
+}
+.stu-content tr{
+    text-align: center;
+}
+.stu-content tr:nth-child(even){
+    background-color:#f8f8f8;
+}
+.stu-content .btn{
+    padding:2px;
+    width:80px;
+}
+.stu-content .paging-btn{
+    margin-top: -20px;
+    padding-left: 365px;
 }
