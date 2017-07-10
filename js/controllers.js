@@ -13,13 +13,16 @@ baseMod
     .controller('NavCtrl',['$scope',function($scope){
 
     }])
-    .controller('CourseTakeCtrl',['$scope',function($scope){
-        $scope.srcClassList = ['one','two','three','four','five'];
+    .controller('CourseTakeCtrl',['$scope','$http',function($scope,$http){
+        /*$scope.srcClassList = ['one','two','three','four','five'];
         $scope.tarClassList = [];
         $scope.addToTarget = function(srcClass){
             if($scope.tarClassList.indexOf(srcClass) == -1)
             $scope.tarClassList.push(srcClass);
             console.log(srcClass);
+        }*/
+        $scope.search = function(){
+            console.log('I M search in homepage');
         }
     }])
 /**

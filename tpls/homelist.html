@@ -36,7 +36,7 @@
                 <div class="from-group">
                     <div class="input-group search2">
                         <input type="text" class="form-control">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>    
+                        <span class="input-group-addon"  ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>    
                     </div>
                 </div>
             </div>
@@ -46,11 +46,11 @@
     <div class="">
         <div class="rows">
             <div class="col-md-1 courseadd">
-                <button class="btn btn-default"><img src="imgs/home/add.png"> 新增课程</button>
+                <a ui-sref="courseadd" class="btn btn-default"><img src="imgs/home/add.png"> 新增课程</a>
             </div>
             <div class="col-md-2 col-md-offset-9">
                 <div class="viewmode">
-                    <span class="title"><img src="imgs/home/title.png"></span>
+                    <a ui-sref="home"><span class="title"><img src="imgs/home/title.png"></span></a>
                     <span class="list"><img src="imgs/home/list.png"></span> 
                 </div>
             </div>
@@ -81,7 +81,7 @@
                     <td>未审核</td>
                     <td>查看详情</td>
                 </tr>
-                <tr ng-repeat="course in courseList">
+               <!-- <tr ng-repeat="course in courseList">
                     <td >{{$index+1}}</td>
                     <td>{{course.}}</td>
                     <td>{{course.}}</td>
@@ -89,7 +89,7 @@
                     <td>{{course.}}否</td>
                     <td>{{course.}}</td>
                     <td>{{course.}}</td>
-                </tr>                
+                </tr>         -->       
             </tbody>
         </table>
         </div>

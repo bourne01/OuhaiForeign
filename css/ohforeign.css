@@ -18,6 +18,9 @@
     margin-left:20px;
     margin-right:4px;
 }
+.navbar-right a{
+    color:#fff!important;
+}
 .header .navbar-right{
     font-family:Microsoft Yahei;
     font-size:12px;
@@ -59,6 +62,9 @@
 */
 .coursetake .rows{
     margin-top:10px;
+}
+.coursetake .col-md-6{
+    padding-right:0;
 }
 .grade .form-control,.grade-type .form-control,.course-status .form-control,.search .form-control{   
     width:175px;
@@ -162,6 +168,9 @@
 /*
 *新增课程
 */
+.content .col-md-11{
+    padding-right:30px;
+}
 .courseadd .nav-tabs{
     padding-left:20px;
     border-bottom: 1px solid #2bbb59;
@@ -184,6 +193,7 @@
 }
 .basicinfo .col-md-7,.basicinfo .col-md-5{
     padding-left:0;
+    padding-right: 0
 }
 .basicinfo .col-6{
     width:49%;
@@ -266,12 +276,14 @@
 .coursesetting{
     margin-left:20px;
     border:1px solid #dddddd;
+    margin-right: 20px;
 }
-.set-tab{
+.set-tabs{
     margin-left: 20px;
     border:1px solid #dddddd;
     border-bottom:1px solid #bde3c9!important;
     background-color: #d5f1de;
+    margin-right: 20px;
 
 }
 .courseset{
@@ -279,7 +291,7 @@
 }
 .courseset .col-md-1{
     padding-left: 20px;
-    padding-right: 10px;
+    padding-right: 6px;
 }
 .classlist{
     margin-left:0;
@@ -351,8 +363,6 @@
     margin-left: -30px;
     margin-bottom: 30px;
     border-bottom: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
-    border-left: 1px solid #dddddd;
     padding-top: 10px;
     padding-bottom: 5px;
     padding-left: 28px;
@@ -472,6 +482,10 @@
 }
 .stu-sift .col-md-3 {
     margin-left: -19px;
+}
+.stu-sift .input-group-addon{
+    background-color: #2bbb59;
+    color: #fff;
 }
 .stu-content thead th{
     background-color: #eeeeee;

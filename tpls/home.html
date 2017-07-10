@@ -36,7 +36,7 @@
                 <div class="from-group">
                     <div class="input-group search2">
                         <input type="text" class="form-control">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>    
+                        <span class="input-group-addon" ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>    
                     </div>
                 </div>
             </div>
@@ -46,12 +46,12 @@
     <div class="">
         <div class="rows">
             <div class="col-md-1 courseadd">
-                <button class="btn btn-default"><img src="imgs/home/add.png"> 新增课程</button>
+                <a ui-sref="courseadd" class="btn btn-default"><img src="imgs/home/add.png"> 新增课程</a>
             </div>
             <div class="col-md-2 col-md-offset-9">
                 <div class="viewmode">
                     <span class="title"><img src="imgs/home/title.png"></span>
-                    <span class="list"><img src="imgs/home/list.png"></span> 
+                    <a ui-sref="homelist"> <span class="list"><img src="imgs/home/list.png"></span> </a>
                 </div>
             </div>
         </div>

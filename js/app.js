@@ -16,8 +16,22 @@ flApp.run(function($rootScope, $state, $stateParams){
 flApp.config(function($stateProvider,$urlRouterProvider){
      //$urlRouterProvider.otherwise('index');
      $stateProvider
-        .state('index',{
+        /*.state('index',{
             url:'/index',
+            views:{
+                'header':{
+                    templateUrl:'tpls/header.html'
+                },
+                'navside':{
+                    templateUrl:'tpls/navside.html'
+                },
+                '':{
+                    templateUrl:'tpls/home.html'
+                }
+            }
+        })*/
+        .state('home',{
+            url:'/home',
             views:{
                 'header':{
                     templateUrl:'tpls/header.html'
