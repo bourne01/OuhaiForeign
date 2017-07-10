@@ -5,9 +5,7 @@
     <!-- 课程基本信息区-->
     <!-- Nav tabs -->
     <ul class="nav nav-tabs basic-tabs" role="tablist">
-        <li role="presentation" class="active" id="courseinfo"><a href="#courseinfo" aria-controls="home" role="tab" data-toggle="tab">课程信息</a></li>
-        <li role="presentation"><a href="#courseinfo" aria-controls="profile" role="tab" data-toggle="tab">子课程</a></li>
-        <li role="presentation"><a href="#courseinfo" aria-controls="messages" role="tab" data-toggle="tab">子课程</a></li>
+        <li role="presentation" class="active" id="courseinfo" ng-click="switchTab($event)"><a href="" aria-controls="home" role="tab" data-toggle="tab">课程信息</a></li>
         <li class="pull-right"><button class="btn btn-default">保存并返回</button></li>
         <li class="pull-right"><button class="btn btn-default" add-sub-course>添加子课程</button></li>
     </ul>
@@ -79,8 +77,9 @@
                 <div class="col-md-5">
                     <div class="coursecover">
                         <img src="imgs/coursecovers/coursecross.png">
+                        <input type="file" class="fileupload" >
                     </div>
-                    <div class="coursecover-txt">
+                    <div class="coursecover-txt">                        
                         设置课程封面
                     </div>
                 </div>
@@ -89,17 +88,12 @@
             <div class="rows">
                 <div class="col-md-12 term-wrap">
                     <label for="">适用学期：</label>
-                    <span class="term">
-                        2017年上半学期
-                        <div class="termchecked">
-                            <img src="imgs/home/termchecked.png">
-                        </div>
-                    </span>
-                    <span class="term">2017年下半学期</span>
-                    <span class="term">2018年上半学期</span>
-                    <span class="term">2018年下半学期</span>
-                    <span class="term">2019年上半学期</span>
-                    <span class="term">2019年下半学期</span>
+                    <span class="term" id="1" check-term>2017年上半学期</span>
+                    <span class="term" id="2" check-term>2017年下半学期</span>
+                    <span class="term" id="3" check-term>2018年上半学期</span>
+                    <span class="term" id="4" check-term>2018年下半学期</span>
+                    <span class="term" id="5" check-term>2019年上半学期</span>
+                    <span class="term" id="6" check-term>2019年下半学期</span>
                 </div>
             </div>
         </div>
@@ -107,15 +101,15 @@
         </div>
     </div>
 <!-- 选课设置与管理区-->
-<ul class="nav nav-tabs set-tabs" role="tablist">
-            <li role="presentation" ><a href="#courseset" aria-controls="courseset" role="tab" data-toggle="tab">选课设置</a></li>
-            <li role="presentation" ><a href="#timeset" aria-controls="timeset" role="tab" data-toggle="tab">时间设置</a></li>
-            <li role="presentation" class="active"><a href="#studentmanage" aria-controls="studentmanage" role="tab" data-toggle="tab">学生管理</a></li>
-            <li role="presentation"><a href="#evaluatemanage" aria-controls="evaluatemanage" role="tab" data-toggle="tab">评价管理</a></li>
-        </ul>
+    <ul class="nav nav-tabs set-tabs" role="tablist" config-tab>
+                <li role="presentation" class="active" id="courseset" ng-click="switchSetTabs($event)"><a href="" aria-controls="courseset" role="tab" data-toggle="tab">选课设置</a></li>
+                <li role="presentation" id="timeset" ng-click="switchSetTabs($event)"><a href="" aria-controls="timeset" role="tab" data-toggle="tab">时间设置</a></li>
+                <li role="presentation" id="studentmanage" ng-click="switchSetTabs($event)"><a href="" aria-controls="studentmanage" role="tab" data-toggle="tab">学生管理</a></li>
+                <li role="presentation" id="evaluatemanage" ng-click="switchSetTabs($event)"><a href="" aria-controls="evaluatemanage" role="tab" data-toggle="tab">评价管理</a></li>
+    </ul>
     <div class="coursesetting">        
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane courseset" id="courseset">
+            <div role="tabpanel" class="tab-pane courseset active" id="courseset">
                 <form class="form-horizontal">
                     <div class="form-group">
                         <label class="checkbox-inline">
