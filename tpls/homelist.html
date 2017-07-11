@@ -11,7 +11,7 @@
                         <option value="000000">全部年级</option>
                         <option ng-repeat="grade in gradeList" value="{{$index+1}}">{{grade}}</option>
                     </select>
-                </div>                
+                </div>
                 <div class="form-group grade-type">
                     <select class="form-control input-att" ng-model="gradeType" ng-init="gradeType='000000'">
                         <option value="000000">全部类别</option>
@@ -25,10 +25,19 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 search-wrap">
+                <div class="from-group teachername">
+                    <div class="input-group search">
+                        <input class="search1 form-control" type="text">
+                        <input class="search2 form-control" type="text">
+                    </div>
+                    <span class="input-group-addon" ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                </div>
+            </div>
+            <!-- <div class="col-md-2">
                 <div class="from-group teachername">
                     <div class="input-group search1">
-                        <input type="text" class="form-control">                       
+                        <input type="text" class="form-control">
                     </div>
                 </div>
             </div>
@@ -36,11 +45,11 @@
                 <div class="from-group">
                     <div class="input-group search2">
                         <input type="text" class="form-control">
-                        <span class="input-group-addon"  ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>    
+                        <span class="input-group-addon"  ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
                     </div>
                 </div>
-            </div>
-        </div>        
+            </div> -->
+        </div>
     </div>
     <div class="clearfix"></div>
     <div class="">
@@ -51,7 +60,7 @@
             <div class="col-md-2 col-md-offset-9">
                 <div class="viewmode">
                     <a ui-sref="home"><span class="title"><img src="imgs/home/title.png"></span></a>
-                    <span class="list"><img src="imgs/home/list.png"></span> 
+                    <span class="list"><img src="imgs/home/list.png"></span>
                 </div>
             </div>
         </div>
@@ -89,7 +98,7 @@
                     <td>{{course.}}否</td>
                     <td>{{course.}}</td>
                     <td>{{course.}}</td>
-                </tr>         -->       
+                </tr>         -->
             </tbody>
         </table>
         </div>

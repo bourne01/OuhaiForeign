@@ -1,9 +1,18 @@
 
+/*通用样式*/
+*{
+  font-size: 14px;
+  color: #333;
+}
+a,a:hover,a:visited,a:active,a:link{
+  text-decoration: none;
+}
+
 /*
 *页面头部样式
 */
 .header{
-    width:1366px;
+    /*width:1366px;*/
     margin: 0 auto;
 }
 .header .navbar-default{
@@ -13,6 +22,20 @@
 .header .navbar{
     border-radius: 0;
 }
+.navbar-right i{
+  display: block;
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  background: url('../imgs/header/icon.png') no-repeat;
+}
+.navbar-right a.editable i{
+  background-position: 0 -20px;
+}
+.navbar-right a.quit i{
+  background-position: 0 0;
+}
 .navbar-right img{
     width:16px;
     margin-left:20px;
@@ -20,34 +43,89 @@
 }
 .navbar-right a{
     color:#fff!important;
+    display: inline-block;
+    margin-left: 10px;
 }
 .header .navbar-right{
     font-family:Microsoft Yahei;
-    font-size:12px;
+    font-size:14px;
     padding-top:35px;
     padding-right:10px;
 }
 /*
 *左侧导航栏
 */
+.col-md-1{
+  width: 96px;
+  margin-right: 10px;
+}
 .nav-side{
-    width:97px;
+  background: #f2f2f2;
+  padding: 10px 0;
+  box-shadow: 0px 2px 5px #d9d9d9;
+}
+.nav-item{
+  padding:15px 10px;
+  display: block;
+  position: relative;
+  margin: 2px auto;
+}
+.nav-side a.active .nav-item,.nav-side a:hover .nav-item{
+  background: #fff;
 }
 .nav-item img{
     display: block;
     margin:0 auto;
     margin-bottom: 8px;
 }
+.nav-item b{
+  width: 7px;
+  height: 18px;
+  background: #000;
+  position: absolute;
+  margin-top: -5px;
+  top: 50%;
+  right: -7px;
+  display: none;
+  background: url('../imgs/sidenav/side.png') no-repeat center left;
+}
+.nav-side a.active .nav-item b,.nav-side a:hover .nav-item b{
+  display: block;
+}
+.nav-item i{
+  width: 40px;
+  height: 40px;
+  display: block;
+  background: url('../imgs/sidenav/icon.png') no-repeat;
+  margin: auto;
+}
+.nav-item#coursemanage i{
+  background-position: 0 0;
+}
+.nav-item#coursetake i{
+  background-position: 0 -40px;
+}
+.nav-item#clastudent i{
+  background-position: 0 -80px;
+}
+.nav-item#teacher-profile i{
+  background-position: 0 -120px;
+}
+.nav-item#permessionset i{
+  background-position: 0 -160px;
+}
 .nav-item span{
     display: block;
     text-align: center;
-    margin-bottom:35px;
+}
+.col-md-1{
+  padding: 0;
 }
 /*
 *页面内容区域
 */
 .content{
-    width:1366px;
+    /*width:1366px;*/
     margin: 0 auto;
 }
 .nav-text{
@@ -65,24 +143,67 @@
 }
 .coursetake .col-md-6{
     padding-right:0;
+    width: auto;
 }
-.grade .form-control,.grade-type .form-control,.course-status .form-control,.search .form-control{   
+.grade .form-control,.grade-type .form-control,.course-status .form-control{
     width:175px;
 }
-.teachername{padding-left:35px;}
+/*.teachername{padding-left:35px;}*/
 .search1 .form-control{
     border-bottom-left-radius: 5px!important;
     border-top-left-radius: 5px!important;
-    width:123%!important;
+}
+.viewmode{
+  float: right;
 }
 .search2 .input-group-addon{
     background-color: #2bbb59;
     color: #fff;
 }
+.search2 .glyphicon{
+  color: #fff;
+}
+.search-wrap{
+  width: auto;
+}
+.search-wrap .input-group{
+  float: left;
+}
+.search-wrap .input-group-addon{
+  background-color: #2bbb59;
+  border-color: #2bbb59;
+  color: #fff;
+  height: 36px;
+  width: 34px;
+  float: left;
+}
+.search-wrap .input-group-addon span{
+  color: #fff;
+  line-height: 21px;
+}
+.search-wrap .search1{
+  width: 120px;
+}
+.search-wrap .search2{
+  width: 160px;
+}
+.search-wrap .search{
+  border: 1px solid #ddd;
+  border-radius: 3px 0 0 3px;
+}
+.search-wrap .search1{
+  border-right: 1px solid #ddd;
+}
+.search-wrap input{
+  border: none;
+  float: left;
+}
 .courseadd .btn-default{
+  border-color: #2bbb59;
     background-color: #2bbb59;
     color: #fff;
 }
+
 .viewmode .title img{
     width:13px;
     float:right;
@@ -119,25 +240,49 @@
     border:1px solid #ddd;
     position: relative;
 }
+.course>p{
+  overflow: hidden;
+  clear: both;
+  padding: 5px 10px 0 10px;
+}
+.course>p>span{
+  color: #666;
+  font-size: 12px;
+  line-height: 30px;
+}
+.course>p i {
+  /*头像*/
+  width: 30px;
+  height: 30px;
+  display: block;
+  float: left;
+  background-size: cover;
+  margin-right: 10px;
+}
+
 .is-approval{
     position: absolute;
     top:0;
     right:0;
-} 
+}
 .coursetitleview .col-md-2{
     margin-bottom:20px;
 }
-.coursetitleview .img-circle{
+/*.coursetitleview .img-circle{
     width:30px;
     margin-left:10px;
-}
+}*/
 .coursename{
-    width:171px;
+    width:100%;
     padding-left:10px;
-
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
 }
 .coursecover{
-    width:171px;
+    width:100%;
     position: relative;
 }
 .fileupload{
@@ -161,12 +306,12 @@
 .courselistview thead th{
     background-color: #f4f4f4
 }
-.courselistview tr:nth-child(even){    
+.courselistview tr:nth-child(even){
     background-color: #f4f4f4
 }
 .courselistview tr:hover{
     background-color: #e2f9ff;
-    
+
 }
 .courselistview .first-col{
     width:80px;
@@ -308,23 +453,23 @@
 .classlist{
     margin-left:0;
     padding-left:0;
-    list-style-type:none;    
-      
+    list-style-type:none;
+
 }
 .overflow-scroll{
     height:300px;
-    overflow-y: auto;    
+    overflow-y: auto;
 }
 .overflow-scroll li:nth-child(even){
     background-color: #f8f8f8   ;
 }
 .classlist .classlist-txt{
-    text-align: center;  
+    text-align: center;
     background-color: #eeeeee;
 }
 .classlist .class{
     display: inline-block;
-    padding-right:90px;
+    padding-right:80px;
 }
 .classlist li{
     height:25px;
@@ -339,8 +484,8 @@
     list-style-type: none;
     margin-left:0;
     padding-left:0;
-    height:300px; 
-    margin-top:30px;    
+    height:300px;
+    margin-top:30px;
 }
 .classaction li{
      height:45px;
@@ -443,7 +588,7 @@
     margin-right:-65px;
 }
 /*
-*学生管理选项卡 
+*学生管理选项卡
 */
 .mask{
     z-index: 1;
@@ -470,12 +615,12 @@
 }
 .pop-addstudent .title{
     background-color:#2bbb59;
-    
+
     height:42px;
     line-height: 42px;
     color:#fff;
     width:1084px;
-    
+
 }
 .pop-addstudent .col-md-1{
     padding-left: 50px;

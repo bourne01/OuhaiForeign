@@ -11,7 +11,7 @@
                         <option value="000000">全部年级</option>
                         <option ng-repeat="grade in gradeList" value="{{$index+1}}">{{grade}}</option>
                     </select>
-                </div>                
+                </div>
                 <div class="form-group grade-type">
                     <select class="form-control" ng-model="gradeType" ng-init="gradeType='000000'">
                         <option value="000000">全部类别</option>
@@ -25,34 +25,41 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 search-wrap">
+                <div class="from-group teachername">
+                    <div class="input-group search">
+                        <input class="search1 form-control" type="text" placeholder="教师名字">
+                        <input class="search2 form-control" type="text" placeholder="课程名称">
+                    </div>
+                    <span class="input-group-addon" ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                </div>
+            </div>
+            <!-- <div class="col-md-2 search1-wrap">
                 <div class="from-group teachername">
                     <div class="input-group search1">
-                        <input type="text" class="form-control">                       
+                        <input type="text" class="form-control">
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 search1-wrap">
                 <div class="from-group">
                     <div class="input-group search2">
                         <input type="text" class="form-control">
-                        <span class="input-group-addon" ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>    
+                        <span class="input-group-addon" ng-click="search()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
                     </div>
                 </div>
-            </div>
-        </div>        
+            </div> -->
+        </div>
     </div>
     <div class="clearfix"></div>
-    <div class="">
-        <div class="rows">
-            <div class="col-md-1 courseadd">
-                <a ui-sref="courseadd" class="btn btn-default"><img src="imgs/home/add.png"> 新增课程</a>
-            </div>
-            <div class="col-md-2 col-md-offset-9">
-                <div class="viewmode">
-                    <span class="title"><img src="imgs/home/title.png"></span>
-                    <a ui-sref="homelist"> <span class="list"><img src="imgs/home/list.png"></span> </a>
-                </div>
+    <div class="rows">
+        <div class="col-md-1 courseadd">
+            <a ui-sref="courseadd" class="btn btn-default"><img src="imgs/home/add.png"> 新增课程</a>
+        </div>
+        <div class="col-md-2 col-md-offset-9">
+            <div class="viewmode">
+                <span class="title"><img src="imgs/home/title.png"></span>
+                <a ui-sref="homelist"> <span class="list"><img src="imgs/home/list.png"></span> </a>
             </div>
         </div>
     </div>
@@ -63,8 +70,10 @@
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                     <div class="is-approval">
                         <img src="imgs/home/approved.png">
                     </div>
@@ -74,8 +83,11 @@
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <!-- <img class="img-circle" src="imgs/teachers/ms.wu.jpg"> -->
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                      <div class="is-approval">
                         <img src="imgs/home/unapproved.png">
                     </div>
@@ -85,34 +97,44 @@
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <!-- <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
+                    <span>吴莉莉</span> -->
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
-            </div>            
+            </div>
         </div>
 
          <div class="rows">
@@ -120,100 +142,124 @@
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
             </div>
            <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
-            </div>            
+            </div>
         </div>
         <div class="rows">
             <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
             </div>
            <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="course">
                     <img class="coursecover" src="imgs/coursecovers/physics0.jpg">
                     <div class="coursename">趣味物理</div>
-                    <img class="img-circle" src="imgs/teachers/ms.wu.jpg">
-                    <span>吴莉莉</span>
+                    <p>
+                      <i class="img-circle" style="background-image: url('imgs/teachers/ms.wu.jpg')"></i>
+                      <span>吴莉莉</span>
+                    </p>
                 </div>
-            </div>            
+            </div>
         </div>
     </div>
     <div class="paging-btn">

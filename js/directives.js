@@ -45,9 +45,7 @@ courseMod
     })
     .directive('checkTerm',function($http){
         return{
-            link:function(scope,element,attr){
-                scope.isClick = false;
-                scope.termIdList = []//保存已经选中的学期
+            link:function(scope,element,attr){                
                 element.on('click',function(){
                     var arrElemIndex = scope.termIdList.indexOf(attr.id);
                     if( arrElemIndex == -1){//列表中未存在该学期ID
@@ -62,5 +60,66 @@ courseMod
                     }
                 })
             }
+        }
+    })
+    /**
+     * 选中选课的使用班级
+     */
+    .directive('checkClass',function(){
+        return{
+            link:function(scope,element,attr){
+                //scope.chkClassIdList = [];//被选中的适合班级
+                element.on('click',function(){
+                        var arrElemIndex = scope.chkClassIdList.indexOf(attr.id);
+                        if( arrElemIndex == -1){//列表中未存在班级ID
+                            scope.chkClassIdList.push(attr.id);
+                            element.append('<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>');
+                        }else{
+                            delete scope.chkClassIdList[arrElemIndex];
+                            angular.element('#'+attr.id+' .glyphicon').remove();
+                            
+                        }
+                    })
+            }
+        }
+    })
+    /**
+     * 适用选课的班级处理
+     */
+    .directive('dealClass',function(){
+        return{
+            link:function(scope,element,attr){
+                element.on('click',function(){
+                    var actType = attr.id;
+                    console.log(actType);
+                    console.log(scope.chkClassIdList);
+                    switch(actType){
+                        case 'moveclass'://移动班级
+                            scope.selectedClassList = scope.chkClassIdList;
+                            for(var i=0;i<scope.chkClassIdList.length;i++){
+                                angular.element('#'+scope.chkClassIdList[i]+' .glyphicon').remove();
+                            }                                                    
+                            break;
+                        case 'cancelclass'://从已选择列表中删除班级
+                            var selectedClassLen = scope.selectedClassList.length;
+                            var checkClassLen = scope.chkClassIdList.length;
+                            var classListAfterCancel = [];//剩余班级
+                            for(var i=0;i<selectedClassLen;i++){
+                                if(scope.chkClassIdList.indexOf(scope.selectedClassList[i]) == -1){
+                                    classListAfterCancel.push(scope.selectedClassList[i]);                       
+                                }
+                            }
+                            console.log(classListAfterCancel);  
+                            scope.selectedClassList = classListAfterCancel;  
+                            break;
+                        case 'moveall':
+                            scope.selectedClassList = scope.classList;
+                            break;
+                        case 'cancelall':
+                            scope.selectedClassList = [];
+                    }
+                    scope.chkClassIdList = [];
+                })
+        }
         }
     })

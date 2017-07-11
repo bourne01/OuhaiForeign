@@ -1,32 +1,38 @@
 <div class="nav-side" ng-controller="NavCtrl">
-        <a ui-sref="home" >
-            <div class='nav-item' id="coursemanage">
-                <img src="imgs/sidenav/coursemanage.png">
-                <span>课程管理<span>
-            </div>
+        <a ui-sref="home" nav-click>
+            <span class='nav-item' id="coursemanage">
+              <i></i>
+              <span>课程管理</span>
+              <b></b>
+            </span>
         </a>
-        <a ui-sref="coursetake" >
-            <div class='nav-item' id="coursetake">
-                <img src="imgs/sidenav/coursetaking.png">
-                <span>选课管理<span>
-            </div>
+        <!-- coursetake -->
+        <a ui-sref="coursetake" nav-click>
+            <span class='nav-item' id="coursetake">
+              <i></i>
+              <span>选课管理</span>
+              <b></b>
+            </span>
         </a>
-        <a ui-sref="students" >
-            <div class='nav-item' id="coursemanage">
-                <img src="imgs/sidenav/students.png">
-                <span>班级学生<span>
-            </div>
+        <a ui-sref="students" nav-click >
+            <span class='nav-item' id="clastudent">
+                <i></i>
+                <span>班级学生</span>
+                <b></b>
+            </span>
         </a>
-        <a ui-sref="teacher-profile" >
-            <div class='nav-item' id="teacher-profile">
-                <img src="imgs/sidenav/teacher_profile.png">
-                <span>教师信息<span>
-            </div>
+        <a ui-sref="teacher-profile" nav-click >
+            <span class='nav-item' id="teacher-profile">
+                <i></i>
+                <span>教师信息</span>
+                <b></b>
+            </span>
         </a>
-        <a ui-sref="permessionset" >
-            <div class='nav-item' id="permessionset">
-                <img src="imgs/sidenav/settings.png">
-                <span>权限设置<span>
-            </div>
+        <a ui-sref="permessionset" nav-click>
+            <span class='nav-item' id="permessionset">
+                <i></i>
+                <span>权限设置</span>
+                <b></b>
+            </span>
         </a>
 </div>

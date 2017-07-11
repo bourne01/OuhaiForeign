@@ -2,13 +2,13 @@
  * 基础信息模块
  */
 var baseMod = angular.module('BaseMod',[]);
-console.log(baseMod);
+// console.log(baseMod);
 baseMod
     .factory('',function(){
         return;
     })
     .controller('HeaderCtrl',['$scope',function($scope){
-        
+
     }])
     .controller('NavCtrl',['$scope',function($scope){
 
@@ -26,12 +26,23 @@ baseMod
         }
     }])
 /**
- * 
+ *
  */
 var courseMod = angular.module('CourseMod',[]);
 courseMod
     .controller('CourseAddCtrl',['$scope',function($scope){
         $scope.saveCourse = function(){
-            
+
         }
+<<<<<<< .mine
+        $scope.termIdList = [];//保存已经选中的学期
+        $scope.classList = ['一年级1班','一年级2班','一年级3班','一年级4班',
+                                '一年级5班','一年级6班','一年级7班','一年级8班',
+                                '二年级1班','二年级2班','二年级3班','二年级4班',
+                                '二年级5班','二年级6班','二年级7班','二年级8班'];
+        $scope.chkClassIdList = [];//被选中的适合班级
+        $scope.selectedClassList = [];//已选择该课程的班级
+
+    }])=======
     }])
+>>>>>>> .r40

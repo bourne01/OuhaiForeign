@@ -154,71 +154,29 @@
                                     所有班级
                                 </li>
                                 <div class="overflow-scroll">
-                                    <li>
+                                    <!--<li check-class id="1">
                                         <span class="class"> 一年级1班</span>
                                         <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                                    </li>
-                                    <li>
-                                        一年级2班
-                                    </li>
-                                    <li>
-                                        一年级3班
-                                    </li>
-                                    <li>
-                                        一年级4班
-                                    </li>
-                                    <li>
-                                        一年级5班
-                                    </li>
-                                    <li>
-                                        一年级6班
-                                    </li>
-                                    <li>
-                                        一年级7班
-                                    </li>
-                                    <li>
-                                        一年级8班
-                                    </li>
-                                    <li>
-                                        二年级1班
-                                    </li>
-                                    <li>
-                                        二年级2班
-                                    </li>
-                                    <li>
-                                        二年级3班
-                                    </li>
-                                    <li>
-                                        二年级4班
-                                    </li>
-                                    <li>
-                                    二年级5班
-                                    </li>
-                                    <li>
-                                        二年级6班
-                                    </li>
-                                    <li>
-                                        二年级7班
-                                    </li>
-                                    <li>
-                                        二年级8班
-                                    </li>
+                                    </li>-->
+                                    <li ng-repeat="class in classList" id="class{{$index+1}}" check-class>
+                                        <span class="class">{{class}}</span>
+                                    </li>                                    
                                 </div>
                             </ul>
                         </div>
                         <div class="col-md-2">
                             <ul class="classaction">
                                 <li>
-                                    <button class="btn">移动>></button>
+                                    <button class="btn" id='moveclass' deal-class>移动>></button>
                                 </li>
                                 <li>
-                                    <button class="btn"><<取消</button>
+                                    <button class="btn" id='cancelclass' deal-class><<取消</button>
                                 </li>
                                 <li>
-                                    <button class="btn">全部移动>></button>
+                                    <button class="btn" id='moveall' deal-class>全部移动>></button>
                                 </li>
                                 <li>
-                                    <button class="btn"><<全部取消</button>
+                                    <button class="btn" id='cancelall' deal-class><<全部取消</button>
                                 </li>
                             </ul>
                         </div>
@@ -227,30 +185,9 @@
                                 <li class="classlist-txt">
                                     选择该课程的班级
                                 </li>
-                                <div class="overflow-scroll">
-                                    <li>
-                                        一年级1班
-                                    </li>
-                                    <li>
-                                        一年级2班
-                                    </li>
-                                    <li>
-                                        一年级3班
-                                    </li>
-                                    <li>
-                                        一年级4班
-                                    </li>
-                                    <li>
-                                        一年级5班
-                                    </li>
-                                    <li>
-                                        一年级6班
-                                    </li>
-                                    <li>
-                                        一年级7班
-                                    </li>
-                                    <li>
-                                        一年级8班
+                                <div class="overflow-scroll">                                   
+                                    <li ng-repeat="class in selectedClassList" id="selectedclass{{$index+1}}" check-class>
+                                        <span class="class">{{class}}</span>
                                     </li>
                                 </div>
                             </ul>
@@ -564,7 +501,7 @@
 <!-- 新增学生 -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane studentmanage active" id="studentmanage">
-            Coming soon!
+            
         </div>
     </div>
 <!-- 评价管理 -->
