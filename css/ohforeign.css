@@ -138,6 +138,42 @@ a,a:hover,a:visited,a:active,a:link{
 /*
 *课程展示区---标题视图
 */
+.courseplanadd .btn-default{
+    border-color: #2bbb59;
+    background-color: #2bbb59;
+    color: #fff;
+    margin-right: 5px;
+    }
+.courseplanadd{
+    margin-left:15px;
+}
+.courseplanlist{
+    margin-top:20px;
+}
+.courseplanlist thead th{
+    background-color: #f4f4f4;
+    text-align: center;
+}
+.courseplanlist tr:nth-child(even){
+    background-color: #f4f4f4
+}
+.courseplanlist tr:hover{
+    background-color: #e2f9ff;
+
+}
+.courseplanlist .first-col{
+    width:5%;
+}
+.courseplanlist .btn{
+    padding:2px;
+    width: 31%;
+    border: 1px solid #2bbb59;
+    color: #fff;
+    background-color:#2bbb59;
+}
+.courseplanlist .col-opertion{
+    width:20%;
+}
 .coursetake .rows{
     margin-top:10px;
 }
@@ -199,9 +235,10 @@ a,a:hover,a:visited,a:active,a:link{
   float: left;
 }
 .courseadd .btn-default{
-  border-color: #2bbb59;
+    border-color: #2bbb59;
     background-color: #2bbb59;
     color: #fff;
+    margin-right: 5px;
 }
 
 .viewmode .title img{
@@ -332,6 +369,7 @@ a,a:hover,a:visited,a:active,a:link{
 }
 .nav-tabs .active a{
     background-color: #2bbb59!important;
+    color: #fff!important;
 }
 .nav-tabs a{
     border-top: 1px solid #dddddd!important;
@@ -469,7 +507,7 @@ a,a:hover,a:visited,a:active,a:link{
 }
 .classlist .class{
     display: inline-block;
-    padding-right:80px;
+    padding-right:90px;
 }
 .classlist li{
     height:25px;
@@ -663,4 +701,39 @@ a,a:hover,a:visited,a:active,a:link{
 .stu-content .paging-btn{
     margin-top: -20px;
     padding-left: 365px;
+}
+/*
+*学生管理标签
+*/
+.studentmanage{
+    margin-left:5px;
+    margin-top:30px;
+}
+.studentmanage thead th{
+    background-color: #eeeeee;
+    text-align: center;
+}
+.studentmanage tr{
+    text-align: center;
+}
+.studentmanage tr:nth-child(even){
+    background-color:#f8f8f8;
+}
+.studentmanage .btn{
+    padding: 0px;
+    width: 30%;    
+}
+.studentmanage .btn-delete{
+    background-color: #fff;
+    color:#2bbb59;
+}
+.studentmanage .col-operation {
+    width:15%;
+}
+.studentmanage .paging-btn{
+    margin-top:-20px;
+    padding-left: 33%;
+}
+.studentmanage .pagination{
+    margin:0px;
 }

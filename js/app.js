@@ -71,5 +71,19 @@ flApp.config(function($stateProvider,$urlRouterProvider){
                     templateUrl:'tpls/courseadd.html'
                 }
             }
+        })
+        .state('coursetake',{
+            url:'/coursetake',
+            views:{
+                'header':{
+                    templateUrl:'tpls/header.html'
+                },
+                'navside':{
+                    templateUrl:'tpls/navside.html'
+                },
+                '':{
+                    templateUrl:'tpls/coursetake.html'
+                }
+            }
         })       
 })

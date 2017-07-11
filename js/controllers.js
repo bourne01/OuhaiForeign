@@ -34,7 +34,6 @@ courseMod
         $scope.saveCourse = function(){
 
         }
-<<<<<<< .mine
         $scope.termIdList = [];//保存已经选中的学期
         $scope.classList = ['一年级1班','一年级2班','一年级3班','一年级4班',
                                 '一年级5班','一年级6班','一年级7班','一年级8班',
@@ -43,6 +42,19 @@ courseMod
         $scope.chkClassIdList = [];//被选中的适合班级
         $scope.selectedClassList = [];//已选择该课程的班级
 
-    }])=======
     }])
->>>>>>> .r40
+    /**
+     * 控制器适用于选课页面的coursetake.html
+     */
+    .controller('CourseTakeCtrl',['$scope','$http',function($scope,$http){
+        //获取选课计划信息
+        var url = 'p/xkp!query.action';
+        var params = {'start':0,'limit':10};
+        $http({'url':url,'params':params})
+            .then(function(){
+                
+            },function(){
+
+            })
+
+    }])

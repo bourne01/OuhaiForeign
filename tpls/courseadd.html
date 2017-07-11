@@ -212,7 +212,8 @@
                             <input type="text" class="form-control" placeholder="女生人数">                        
                     </div>
                 </form>
-             <div class="priorstudent">
+            <!-- 优选学生 -->
+             <!--<div class="priorstudent">
                     <div class="form-group priortaking">
                         <lable>优先选课：</lable>
                         <button type="button" class="btn btn-default">点击添加学生</button>
@@ -256,7 +257,7 @@
                         </button>                                    
                     </div>
                     <div style="clear:both"></div>
-                </div>
+                </div>-->
             <div class="coursestatus">
                     <div class="status">未审核</div>
                     <div class="delete">删除课程</div> 
@@ -500,8 +501,113 @@
     </div>
 <!-- 新增学生 -->
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane studentmanage active" id="studentmanage">
-            
+        <div role="tabpanel" class="tab-pane studentmanage" id="studentmanage">
+            <div class="col-md-10">
+            <table class="table table-bordered tabel-striped table-condensed">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="grade1" value="option1">
+                                    </label>
+                                </th>
+                                <th>所属年级</th>
+                                <th>所属班级</th>
+                                <th>学号</th>                                
+                                <th>姓名</th>
+                                <th>性别</th>
+                                <th>成绩</th>
+                                <th>累计学分</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="grade1" value="option1">
+                                    </label>
+                                </td>
+                                <td>一年级</td>
+                                <td>一年级1班</td>
+                                <td>170510</td>
+                                <td>傅双林</td>
+                                <td>男</td>
+                                <td>优</td>
+                                <td>12</td>
+                                <td>
+                                    <button class="btn btn-default" type="button">编辑</button>
+                                    <button class="btn btn-default btn-delete" type="button">删除</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="grade1" value="option1">
+                                    </label>
+                                </td>
+                                <td>一年级</td>
+                                <td>一年级1班</td>
+                                <td>170510</td>
+                                <td>傅双林</td>
+                                <td>男</td>
+                                <td>优</td>
+                                <td>12</td>
+                                <td>
+                                    <button class="btn btn-default" type="button">编辑</button>
+                                    <button class="btn btn-default" type="button">删除</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="grade1" value="option1">
+                                    </label>
+                                </td>
+                                <td>一年级</td>
+                                <td>一年级1班</td>
+                                <td>170510</td>
+                                <td>傅双林</td>
+                                <td>男</td>
+                                <td>优</td>
+                                <td>12</td>
+                                <td class="col-operation">
+                                    <button class="btn btn-default" type="button">编辑</button>
+                                    <button class="btn btn-default" type="button">删除</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="grade1" value="option1">
+                                    </label>
+                                </td>
+                                <td>一年级</td>
+                                <td>一年级1班</td>
+                                <td>170510</td>
+                                <td>傅双林</td>
+                                <td>男</td>
+                                <td>优</td>
+                                <td>12</td>
+                                <td>
+                                    <button class="btn btn-default" type="button">编辑</button>
+                                    <button class="btn btn-default" type="button">删除</button>
+                                </td>
+                            </tr>       
+                        </tbody>
+                    </table>
+            </div>
+                    <div class="paging-btn">
+                        <ul class="pagination">
+                            <li><a href="#">&laquo;</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">&raquo;</a></li>
+                        </ul>
+                    </div>
         </div>
     </div>
 <!-- 评价管理 -->

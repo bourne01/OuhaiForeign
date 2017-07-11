@@ -95,7 +95,14 @@ courseMod
                     console.log(scope.chkClassIdList);
                     switch(actType){
                         case 'moveclass'://移动班级
-                            scope.selectedClassList = scope.chkClassIdList;
+                            var chkClassIdLen = scope.chkClassIdList.length;
+                            var classListAfterAdd = scope.selectedClassList;
+                            for(var i=0;i<chkClassIdLen;i++){
+                                if(scope.selectedClassList.indexOf(scope.chkClassIdList[i]) == -1){
+                                    classListAfterAdd.push(scope.chkClassIdList[i]);
+                                }
+                            }
+                            scope.selectedClassList = classListAfterAdd;
                             for(var i=0;i<scope.chkClassIdList.length;i++){
                                 angular.element('#'+scope.chkClassIdList[i]+' .glyphicon').remove();
                             }                                                    
