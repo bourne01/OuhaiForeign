@@ -1,4 +1,4 @@
-<div class="courseadd" ng-controller="CourseAddCtrl">
+<div class="courseadd" ng-controller="CourseDealCtrl">
     <div class="nav-text">
         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>  当前位置：课程管理 > 课程列表 > 新增课程
     </div>
@@ -6,7 +6,7 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs basic-tabs" role="tablist">
         <li role="presentation" class="active" id="courseinfo" ng-click="switchTab($event)"><a href="" aria-controls="home" role="tab" data-toggle="tab">课程信息</a></li>
-        <li class="pull-right"><button class="btn btn-default">保存并返回</button></li>
+        <li class="pull-right"><button class="btn btn-default" ng-click="saveCourse()">保存并返回</button></li>
         <li class="pull-right"><button class="btn btn-default" add-sub-course>添加子课程</button></li>
     </ul>
 
@@ -20,37 +20,42 @@
                             <div class="basicinfo-txt">课程基本信息</div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="">课程名次：</label>
-                                    <input type="text" class="form-control" value="">
+                                    <label for="">课程名称：</label>
+                                    <input type="text" class="form-control" ng-model="courseName">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="">课程类别：</label>
-                                    <select class="form-control">
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                    </select>
+                                    <label for="">课程编号：</label>
+                                    <input type="text" class="form-control" ng-model="courseNO">
                                 </div>
                             </div>
-                        </div>
+                        </div>       
                         <div class="rows">
                             <div class="col-sm-12">
                                 <label for="">课程简介：</label>
-                                <textarea class="form-control" rows="5" placeholder="限三百字以内"></textarea>
+                                <textarea class="form-control" rows="5" ng-model="courseMemo" placeholder="限三百字以内"></textarea>
                             </div>
-                        </div>
+                        </div>                 
                         <div class="rows">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="">课程教师：</label>
-                                    <select class="form-control">
-                                        <option value="">1</option>
-                                        <option value="">2</option>
+                                   <label for="">课程类别：</label>
+                                    <select class="form-control" ng-model="courseType" ng-init="courseType='2'">
+                                        <option ng-repeat="courseType in courseTypeList" value="{{courseType.id}}">{{courseType.name}}</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">课程教师：</label>
+                                    <select class="form-control" ng-model="selTeacher" ng-init="selTeacher='000'">
+                                        <option value="000">请选教师</option>
+                                        <option ng-repeat="teacher in teacherList" value="{{teacher.thrId}}">{{teacher.thrName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- <div class="col-sm-6">
                                 <div class="rows">
                                     <div class="col-xs-7">
                                         <div class="form-group">
@@ -71,8 +76,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
+                        
                 </div>
                 <div class="col-md-5">
                     <div class="coursecover">
@@ -84,70 +90,48 @@
                     </div>
                 </div>
             </div>
-            <div class="clearfix"></div>
-            <div class="rows">
-                <div class="col-md-12 term-wrap">
-                    <label for="">适用学期：</label>
-                    <span class="term" id="1" check-term>2017年上半学期</span>
-                    <span class="term" id="2" check-term>2017年下半学期</span>
-                    <span class="term" id="3" check-term>2018年上半学期</span>
-                    <span class="term" id="4" check-term>2018年下半学期</span>
-                    <span class="term" id="5" check-term>2019年上半学期</span>
-                    <span class="term" id="6" check-term>2019年下半学期</span>
-                </div>
-            </div>
+            <div class="clearfix"></div>            
         </div>
         
         </div>
     </div>
 <!-- 选课设置与管理区-->
-    <ul class="nav nav-tabs set-tabs" role="tablist" config-tab>
+    <ul class="nav nav-tabs" role="tablist" config-tab>
                 <li role="presentation" class="active" id="courseset" ng-click="switchSetTabs($event)"><a href="" aria-controls="courseset" role="tab" data-toggle="tab">选课设置</a></li>
-                <li role="presentation" id="timeset" ng-click="switchSetTabs($event)"><a href="" aria-controls="timeset" role="tab" data-toggle="tab">时间设置</a></li>
+                <!-- <li role="presentation" id="timeset" ng-click="switchSetTabs($event)"><a href="" aria-controls="timeset" role="tab" data-toggle="tab">时间设置</a></li>
                 <li role="presentation" id="studentmanage" ng-click="switchSetTabs($event)"><a href="" aria-controls="studentmanage" role="tab" data-toggle="tab">学生管理</a></li>
-                <li role="presentation" id="evaluatemanage" ng-click="switchSetTabs($event)"><a href="" aria-controls="evaluatemanage" role="tab" data-toggle="tab">评价管理</a></li>
+                <li role="presentation" id="evaluatemanage" ng-click="switchSetTabs($event)"><a href="" aria-controls="evaluatemanage" role="tab" data-toggle="tab">评价管理</a></li> -->
     </ul>
     <div class="coursesetting">        
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane courseset active" id="courseset">
+            <div role="tabpanel" id="courseset">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="checkbox-inline">
-                        适用年级：
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="grade1" value="option1">一年级
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="grade1" value="option1">二年级
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="grade1" value="option1">三年级
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="grade1" value="option1">四年级
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="grade1" value="option1">五年级
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="grade1" value="option1">六年级
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="grade1" value="option1">七年级
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="grade1" value="option1">八年级
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="grade1" value="option1">九年级
-                        </label>
+                                <div class="col-md-1">
+                                    <label class="checkbox-inline">适用学期：</label>
+                                </div>
+                                <div class="col-md-10">
+                                <span class="term" ng-repeat="term in termList" id="{{term.id}}" check-term>{{term.name}}</span>
+                                </div>
                     </div>
+                    <div class="form-group graderow">
+                        <div class="col-md-1">
+                        <label class="checkbox-inline">
+                            适用年级：
+                        </label>
+                        </div>
+                        <div class="col-md-10">
+                        <label class="checkbox-inline" ng-repeat="grade in gradeList">
+                            <input type="checkbox" id="{{grade.id}}" value="{{grade.id}}" is-grade-checked>{{grade.name}}
+                        </label>   </div>                     
+                    </div>
+                    
                     <div class="form-group">
                         <div class="col-md-1">
-                            <label>适用班级：
+                            <label class="checkbox-inline">适用班级：
                             </label>
                         </div>
+                        <div class="">
                         <div class="col-md-2">
                             <ul class="classlist">
                                 <li class="classlist-txt">
@@ -158,8 +142,8 @@
                                         <span class="class"> 一年级1班</span>
                                         <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                                     </li>-->
-                                    <li ng-repeat="class in classList" id="class{{$index+1}}" check-class>
-                                        <span class="class">{{class}}</span>
+                                    <li ng-repeat="class in _classList" id="class{{class.id}}" classname="{{class.name}}" classid="class{{class.id}}" check-class>
+                                        <span class="class" >{{class.name}}</span>
                                     </li>                                    
                                 </div>
                             </ul>
@@ -186,435 +170,83 @@
                                     选择该课程的班级
                                 </li>
                                 <div class="overflow-scroll">                                   
-                                    <li ng-repeat="class in selectedClassList" id="selectedclass{{$index+1}}" check-class>
-                                        <span class="class">{{class}}</span>
+                                    <li ng-repeat="classId in selectedClassIdList" classid="{{classId}}" id="{{classId}}" check-class>
+                                        <span class="class">{{selectedClassNameList[$index]}}</span>
                                     </li>
                                 </div>
                             </ul>
                         </div>
+                        </div>
+                        <div class="col-md-5"></div>
                     </div>
-                    <div class="clearfix"></div>
-                    <div class="form-group creditlimit">
-                        <label for="">学分限制：</label>必须达到
-                            <input type="text" class="form-control">分
+                    <div class="form-group credit">
+                        <div class="col-md-1">
+                            <label class="checkbox-inline">单期学分：</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input class="form-control" ng-model="credit1" placeholder="优秀">
+                        </div>
+                        <div class="col-md-2">
+                            <input class="form-control" ng-model="credit2" placeholder="良好">
+                        </div>
+                        <div class="col-md-2">
+                            <input class="form-control" ng-model="credit3" placeholder="及格">
+                        </div>
+                        <div class="col-md-2">
+                            <input class="form-control" ng-model="creditMin" placeholder="最低学分">
+                        </div>
+                        <div class="col-md-3"></div>
                     </div>
-                    <div class="form-group stusum">
-                        <label for="">总人数限制：</label>
-                            <input type="text" class="form-control">人
+                    <div class="form-group levelratio">
+                        <div class="col-md-1">
+                            <label class="checkbox-inline">等级比率：</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input class="form-control" ng-model="lvRate1" placeholder="优秀">
+                        </div>
+                        <div class="col-md-2">
+                            <input class="form-control" ng-model="lvRate2" placeholder="良好">
+                        </div>
+                        <div class="col-md-2">
+                            <input class="form-control" ng-model="lvRate3" placeholder="及格">
+                        </div>
+                        <div class="col-md-5"></div>
                     </div>
-                    <div class="form-group gender">
-                        <label for="">性别比例：</label>
-                            <input type="text" class="form-control" placeholder="男生比例">：
-                            <input type="text" class="form-control" placeholder="女生比例">
-                            
-                        <label for="">约等于:</label>
-                            <input type="text" class="form-control" placeholder="男生人数">：
-                            <input type="text" class="form-control" placeholder="女生人数">                        
+                    <div class="form-group studentnumlimit">
+                        <div class="col-md-1">
+                            <label class="checkbox-inline">人数限制：</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input class="form-control" ng-model="manMin" placeholder="人数下限">
+                        </div>
+                        <div class="col-md-2">
+                            <input class="form-control" ng-model="manMax" placeholder="人数上限">
+                        </div>
+                        <div class="col-md-2">
+                            <input class="form-control" ng-model="boyMin" placeholder="男生下限">
+                        </div>
+                        <div class="col-md-2">
+                            <input class="form-control" ng-model="boyMax" placeholder="男生上限">
+                        </div>
+                        <div class="col-md-3"></div>
                     </div>
-                </form>
-            <!-- 优选学生 -->
-             <!--<div class="priorstudent">
-                    <div class="form-group priortaking">
-                        <lable>优先选课：</lable>
-                        <button type="button" class="btn btn-default">点击添加学生</button>
+                    <div class="form-group studentnumlimit">
+                        <div class="col-md-1">
+                            <label class="checkbox-inline"></label>
+                        </div>
+                        <div class="col-md-2">
+                            <input class="form-control" ng-model="girlMin" placeholder="女生下限">
+                        </div>
+                        <div class="col-md-2">
+                            <input class="form-control" ng-model="girlMax" placeholder="女生上限">
+                        </div>
+                        <div class="col-md-7"></div>
                     </div>
-                    <div class="stulist">
-                        <button type="button" class="close"  aria-label="Close">
-                            170501张小凡<span aria-hidden="">&times;</span>
-                        </button>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            170501张小凡<span aria-hidden="">&times;</span>
-                        </button>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            170501张小凡<span aria-hidden="">&times;</span>
-                        </button>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            170501张小凡<span aria-hidden="">&times;</span>
-                        </button>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            170501张小凡<span aria-hidden="">&times;</span>
-                        </button>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            170501张小凡<span aria-hidden="">&times;</span>
-                        </button>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            170501张小凡<span aria-hidden="">&times;</span>
-                        </button>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            170501张小凡<span aria-hidden="">&times;</span>
-                        </button>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            170501张小凡<span aria-hidden="">&times;</span>
-                        </button>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            170501张小凡<span aria-hidden="">&times;</span>
-                        </button>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            170501张小凡<span aria-hidden="">&times;</span>
-                        </button>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            170501张小凡<span aria-hidden="">&times;</span>
-                        </button>                                    
-                    </div>
-                    <div style="clear:both"></div>
-                </div>-->
+                </form>            
             <div class="coursestatus">
-                    <div class="status">未审核</div>
-                    <div class="delete">删除课程</div> 
             </div> 
             </div>
                
-        </div> 
-        <div class="mask"></div>
-        <div class="pop-addstudent">
-            <div class="title">
-                <div class="col-md-2">
-                    添加优先选课学生
-                </div>
-                <div class="col-md-1 col-md-offset-9">
-                    <img src="imgs/home/close.png">
-                </div>
-            </div>
-            <div class="stu-content">
-                <div class="stu-sift">
-                    <div class="form-group col-md-2">
-                        <label for="">年级：</label>
-                        <select class="form-control">
-                            <option>不限</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="">班级：</label>
-                        <select class="form-control">
-                            <option>不限</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="">成绩：</label>
-                        <select class="form-control">
-                            <option>不限</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="">年级：</label>
-                        <input type="text" class="form-control" placeholder="学生姓名">
-                    </div>
-                    <div class="form-group col-md-3 input-group">
-                        <input type="text" class="form-control" placeholder="学生学号">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span> 
-                    </div>
-                </div>
-                <div class="stu-detail">
-                    <table class="table table-bordered tabel-striped table-condensed">
-                        <thead>
-                            <tr>
-                                <th>序号</th>
-                                <th>年级</th>
-                                <th>班级</th>
-                                <th>学号</th>
-                                <th>姓名</th>
-                                <th>成绩</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>优</td>
-                                <td><button class="btn btn-default" type="button">添加</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>优</td>
-                                <td><button class="btn btn-default" type="button">已添加</button></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>优</td>
-                                <td><button class="btn btn-default" type="button">添加</button></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>优</td>
-                                <td><button class="btn btn-default" type="button">已添加</button></td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>优</td>
-                                <td><button class="btn btn-default" type="button">添加</button></td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>优</td>
-                                <td><button class="btn btn-default" type="button">已添加</button></td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>优</td>
-                                <td><button class="btn btn-default" type="button">添加</button></td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>优</td>
-                                <td><button class="btn btn-default" type="button">已添加</button></td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>优</td>
-                                <td><button class="btn btn-default" type="button">添加</button></td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>优</td>
-                                <td><button class="btn btn-default" type="button">添加</button></td>
-                            </tr>                            
-                        </tbody>
-                    </table>
-                    <div class="paging-btn">
-                        <ul class="pagination">
-                            <li><a href="#">&laquo;</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </div>            
     </div>
-<!-- 时间设置标签-->
-    <div class="tab-content">
-        <div role="tabpanel" class="tab-pane timeset" id="timeset">
-            <div class="form-horizontal">
-                <div class="form-group">
-                     <div class="col-md-1">
-                        <label for="">提前选课时间：</label>
-                     </div>
-                    <div class="col-md-3 input-group date " id="src-datetime"  data-link-field="dtp_input1">
-                        <input type="text" class="form-control">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-calendar"></i>  
-                        </span>
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">到：</label>
-                     </div>
-                    <div class="col-md-3 input-group date " id="src-datetime"  data-link-field="dtp_input1">
-                        
-                        <input type="text" class="form-control">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-calendar"></i>  
-                        </span>
-                    </div>
-                </div>
-                <div class="form-group">
-                     <div class="col-md-1">
-                        <label for="">正式选课时间：</label>
-                     </div>
-                    <div class="col-md-3 input-group date " id="src-datetime"  data-link-field="dtp_input1">
-                        <input type="text" class="form-control">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-calendar"></i>  
-                        </span>
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">到：</label>
-                     </div>
-                    <div class="col-md-3 input-group date " id="src-datetime"  data-link-field="dtp_input1">
-                        
-                        <input type="text" class="form-control">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-calendar"></i>  
-                        </span>
-                    </div>
-                </div>
-                <div class="form-group">
-                     <div class="col-md-1">
-                        <label for="">评价时间：</label>
-                     </div>
-                    <div class="col-md-3 input-group date " id="src-datetime"  data-link-field="dtp_input1">
-                        <input type="text" class="form-control">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-calendar"></i>  
-                        </span>
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">到：</label>
-                     </div>
-                    <div class="col-md-3 input-group date " id="src-datetime"  data-link-field="dtp_input1">
-                        
-                        <input type="text" class="form-control">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-calendar"></i>  
-                        </span>
-                    </div>
-                </div>
-                <div class="coursestatus">
-                    <div class="status">未审核</div>
-                    <div class="delete">删除课程</div> 
-            </div> 
-            </div>
-        </div>
-    </div>
-<!-- 新增学生 -->
-    <div class="tab-content">
-        <div role="tabpanel" class="tab-pane studentmanage" id="studentmanage">
-            <div class="col-md-10">
-            <table class="table table-bordered tabel-striped table-condensed">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" id="grade1" value="option1">
-                                    </label>
-                                </th>
-                                <th>所属年级</th>
-                                <th>所属班级</th>
-                                <th>学号</th>                                
-                                <th>姓名</th>
-                                <th>性别</th>
-                                <th>成绩</th>
-                                <th>累计学分</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" id="grade1" value="option1">
-                                    </label>
-                                </td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>男</td>
-                                <td>优</td>
-                                <td>12</td>
-                                <td>
-                                    <button class="btn btn-default" type="button">编辑</button>
-                                    <button class="btn btn-default btn-delete" type="button">删除</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" id="grade1" value="option1">
-                                    </label>
-                                </td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>男</td>
-                                <td>优</td>
-                                <td>12</td>
-                                <td>
-                                    <button class="btn btn-default" type="button">编辑</button>
-                                    <button class="btn btn-default" type="button">删除</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" id="grade1" value="option1">
-                                    </label>
-                                </td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>男</td>
-                                <td>优</td>
-                                <td>12</td>
-                                <td class="col-operation">
-                                    <button class="btn btn-default" type="button">编辑</button>
-                                    <button class="btn btn-default" type="button">删除</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" id="grade1" value="option1">
-                                    </label>
-                                </td>
-                                <td>一年级</td>
-                                <td>一年级1班</td>
-                                <td>170510</td>
-                                <td>傅双林</td>
-                                <td>男</td>
-                                <td>优</td>
-                                <td>12</td>
-                                <td>
-                                    <button class="btn btn-default" type="button">编辑</button>
-                                    <button class="btn btn-default" type="button">删除</button>
-                                </td>
-                            </tr>       
-                        </tbody>
-                    </table>
-            </div>
-                    <div class="paging-btn">
-                        <ul class="pagination">
-                            <li><a href="#">&laquo;</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
-                    </div>
-        </div>
-    </div>
-<!-- 评价管理 -->
-    <div class="tab-content">
-        <div role="tabpanel" class="tab-pane evaluatemanage active" id="evaluatemanage">
-            Coming soon!
-        </div>
-    </div>
-
 </div>

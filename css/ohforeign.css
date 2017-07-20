@@ -1,4 +1,4 @@
-
+﻿
 /*通用样式*/
 *{
   font-size: 14px;
@@ -135,12 +135,75 @@ a,a:hover,a:visited,a:active,a:link{
     border-bottom:1px solid #e5e5e5;
     margin-bottom: 10px;
 }
+.coursetake td,.coursetake th{
+    padding: 4px!important;
+    vertical-align: middle!important;
+    text-align: center;
+}
 /*
+*页面弹窗样式区
+*/
+.newlyaddmask{
+    z-index: 1;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    opacity:0.4;
+    filter:alpha(opacity=40);
+    display:none;
+}
+.newlyaddpop{
+    position: fixed;
+    top:20%;
+    left:20%;
+    z-index: 2;
+    width: 65%;
+    border: 1px solid #2bbb59;
+    display:none;
+    background-color:#fff;
+}
+.newlyaddtitle{
+    height:30px;
+    line-height: 30px;
+    width:100%;
+    background: #2bbb59;
+    padding:0 15px;
+    box-shadow: 0px 15px 0px rgba(255,255,255,.1) inset;
+    color:#fff;
+}
+.newlyaddtitle label{
+    color:#fff;
+}
+.newlyaddtitle .close{
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+.newlyaddcontent{
+    padding:15px;
+    background-color: #fff;
+    overflow:hidden;
+}
+.newlyaddcontent .col-md-1{
+    text-align: right;
+    height:34px;
+    line-height: 34px;
+}
+.newlyaddcontent .btn-default{
+    background-color: #2bbb59;
+    color: #fff;
+}
+
+
 *课程展示区---标题视图
 */
-.courseplanadd .btn-default{
+.courseplanadd .btn{
     border-color: #2bbb59;
-    background-color: #2bbb59;
+    background-color: #2bbb59!important;
     color: #fff;
     margin-right: 5px;
     }
@@ -239,6 +302,7 @@ a,a:hover,a:visited,a:active,a:link{
     background-color: #2bbb59;
     color: #fff;
     margin-right: 5px;
+    margin-left: 15px;
 }
 
 .viewmode .title img{
@@ -359,8 +423,8 @@ a,a:hover,a:visited,a:active,a:link{
 /*
 *新增课程
 */
-.content .col-md-11{
-    padding-right:30px;
+.content .col-md-11 .ng-scope{
+    clear:none!important;
 }
 .courseadd .nav-tabs{
     padding-left:20px;
@@ -375,6 +439,14 @@ a,a:hover,a:visited,a:active,a:link{
     border-top: 1px solid #dddddd!important;
     border-right: 1px solid #dddddd!important;
     border-left: 1px solid #dddddd!important;
+}
+.nav-tabs .glyphicon{
+    position: absolute!important;
+    top:3px;
+    right:4px;
+    display: none;
+    color:#bcdbcd;
+    cursor:pointer;
 }
 .basicinfo {
     margin-left:20px;
@@ -393,11 +465,11 @@ a,a:hover,a:visited,a:active,a:link{
     display: inline-block;
 }
 .basicinfo .col-6 .form-control{
-    width:240px;
+    width:75%;
     display:inline-block;
 }
 .basicinfo .col-sm-6 .form-control{
-    width:232px;
+    width:75%;
     display:inline-block;
 }
 .basicinfo-txt{
@@ -409,7 +481,7 @@ a,a:hover,a:visited,a:active,a:link{
     padding-right: 5px!important;
 }
 .basicinfo .col-sm-12 .form-control{
-    width:575px;
+    width:87%;
     display:inline-block;
     margin-bottom:15px;
 }
@@ -421,8 +493,12 @@ a,a:hover,a:visited,a:active,a:link{
     padding-right:0;
     padding-left:0;
 }
-.basicinfo .col-xs-7 .form-control,.basicinfo .col-xs-5 .form-control{
-    width:95px;
+.basicinfo .col-xs-7 .form-control{
+    width:52%;
+    display:inline-block;
+}
+.basicinfo .col-xs-5 .form-control{
+    width:73%;
     display:inline-block;
 }
 .basicinfo .coursecover{
@@ -444,7 +520,7 @@ a,a:hover,a:visited,a:active,a:link{
     padding-left: 15px;
     padding-right: 15px;
 }
-.basicinfo .term{
+.coursesetting .term{
     display: inline-block;
     padding-right:3px;
     padding-left:3px;
@@ -457,13 +533,16 @@ a,a:hover,a:visited,a:active,a:link{
     border-radius: 3px;
     position: relative;
 }
-.basicinfo .term-border{
+.coursesetting .term-border{
     border:1px solid #2bbb59!important;
 }
-.basicinfo .term .termchecked{
+.coursesetting .term .termchecked{
     position: absolute;
     top:-12px;
     right:0;
+}
+.cutpadding {
+    margin-top: -8px;
 }
 /*
 *选课设置与管理选项卡
@@ -472,6 +551,15 @@ a,a:hover,a:visited,a:active,a:link{
     margin-left:20px;
     border:1px solid #dddddd;
     margin-right: 20px;
+}
+.coursesetting .form-group{
+    margin-right: 0px!important;
+     margin-left: 0px!important; 
+    padding-top: 15px;
+    margin-bottom: 0;
+}
+.coursesetting .graderow{
+    margin-top:-7px;
 }
 .set-tabs{
     margin-left: 20px;
@@ -492,6 +580,7 @@ a,a:hover,a:visited,a:active,a:link{
     margin-left:0;
     padding-left:0;
     list-style-type:none;
+    border: 1px solid #ddd;
 
 }
 .overflow-scroll{
@@ -507,7 +596,7 @@ a,a:hover,a:visited,a:active,a:link{
 }
 .classlist .class{
     display: inline-block;
-    padding-right:90px;
+    padding-right:10px;
 }
 .classlist li{
     height:25px;
@@ -520,15 +609,16 @@ a,a:hover,a:visited,a:active,a:link{
 }
 .classaction{
     list-style-type: none;
-    margin-left:0;
-    padding-left:0;
-    height:300px;
-    margin-top:30px;
+    margin-left: 0;
+    padding-left: 0;
+    height: 327px;
+    padding-top: 30px;
+    border: 1px solid #ddd;
 }
 .classaction li{
      height:45px;
      line-height:40px;
-     padding-left:50px;
+     padding-left:32px;
      padding-right:15px;
 }
 .courseset .col-md-2{
@@ -583,8 +673,10 @@ a,a:hover,a:visited,a:active,a:link{
     border-top:1px solid #dddddd;
 }
 .coursestatus {
-    margin:0 auto;
-    width:230px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .coursestatus .status{
     width:105px;
@@ -736,4 +828,124 @@ a,a:hover,a:visited,a:active,a:link{
 }
 .studentmanage .pagination{
     margin:0px;
+}
+/*
+*选课任务管理页面
+*/
+.tasklistview .col-md-9,.tasklistview .col-md-3{
+    padding-right:0px;
+    padding-left:0px;
+    
+}
+.tasklistview .table{
+    margin-right:2px;
+    margin-left:2px;
+    margin-bottom: 2px;
+    margin-top:10px;
+}
+.tasklisttitle,.stulisttitle{
+    height: 34px;
+    background-color: #2bbb59;
+    text-align: center;
+    font-family: Microsoft Yahei;
+    font-size:14px;
+    line-height: 34px;
+    color:#fff;
+    margin-bottom:10px;
+}
+.tasklistview .tasksift .col-md-3,.tasklistview .tasksift .col-md-2{
+    padding-left:5px;
+    padding-right:5px;
+}
+.tasklistview .tasklist,.studentlist{
+    margin-right:5px;
+    border: 2px solid #2bbb59;
+    border-radius: 5px;
+}
+.tasklistview .tasksift .form-control{
+    width:73%;
+}
+.tasklistview .tasksift .btn,.studentlist .btn{
+    background: #2bbb59;
+    color: #fff;
+}
+.studentlist .form-group,.tasklist .form-group{
+    margin-bottom: 10px!important;
+}
+.studentlist .col-sm-6{
+    padding-right:0;
+    padding-left:0;
+}
+.studentlist select.form-control {
+    width:73%;
+    padding-right:2px;
+    padding-left:2px;
+}
+.studentlist input.form-control{
+    width:73%;
+    padding-right:2px;
+    padding-left:2px;
+}
+.tasklistview .newlyaddpop{
+    width:47%!important;
+}
+/*
+*选课结果页面courseresult.html
+*/
+td.col-left{
+    text-align: left;
+}
+td.col-right{
+    text-align: left;
+}
+.selcoursecontent{
+    margin-top:20px;
+    
+}
+.stunames-wrap{
+    width: 60%;
+    height: 100px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    margin-left: 15px;
+}
+.selcourse .col-sm-8 {
+    padding: 2px;
+}
+.selcourse .btn {
+    padding: 0;
+    font-size: 12px;
+    margin:2px;
+}
+.selcoursecontent .close {
+    font-size: 12px;
+}
+
+.remarkpop{
+    position: fixed;
+    top: 20%;
+    left: 27%;
+    z-index: 2;
+    width: 48%;
+    border: 1px solid #2bbb59;
+    display: none;
+    background-color: #fff;
+}
+.remarkcontent{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.remarkcontent textarea.form-control {
+    display: inline-block!important;
+    width: 80%;
+    height: 100px;
+    overflow-y: auto;
+}
+.remarkcontent input.form-control {
+    width: 80%;
+    display: inline-block!important;
+}
+.studentlist-height{
+    height:450px;
+    overflow-y: auto;
 }

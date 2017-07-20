@@ -1504,7 +1504,16 @@
       suffix:      ['st', 'nd', 'rd', 'th'],
       today:       'Today',
       clear:       'Clear'
-    }
+    },
+    cn: {
+            days: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+            daysShort: ["日", "一", "二", "三", "四", "五", "六", "七"],
+            daysMin: ["日", "一", "二", "三", "四", "五", "六", "七"],
+            months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+            monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+            today: "今天",
+            clear: "清除"
+        }
   };
 
   var DPGlobal = {
@@ -1857,7 +1866,7 @@
                 '</tr>' +
       '</thead>',
     contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
-    footTemplate: '<tfoot>' + 
+    footTemplate: '<tfoot>' +
                     '<tr><th colspan="7" class="today"></th></tr>' +
                     '<tr><th colspan="7" class="clear"></th></tr>' +
                   '</tfoot>'
