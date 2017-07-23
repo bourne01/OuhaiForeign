@@ -131,8 +131,8 @@ flApp.config(function($stateProvider,$urlRouterProvider){
                 }
             }
         })
-        .state('homelist',{
-            url:'/homelist',
+        .state('homeicon',{
+            url:'/homeicon',
             views:{
                 'header':{
                     templateUrl:'tpls/header.html'
@@ -141,7 +141,7 @@ flApp.config(function($stateProvider,$urlRouterProvider){
                     templateUrl:'tpls/navside.html'
                 },
                 '':{
-                    templateUrl:'tpls/homelist.html'
+                    templateUrl:'tpls/homeicon.html'
                 }
             }
         })
@@ -202,6 +202,20 @@ flApp.config(function($stateProvider,$urlRouterProvider){
                 },
                 '':{
                     templateUrl:'tpls/coursetake.html'
+                }
+            }
+        })
+        .state('coursereview',{
+            url:'/coursereview',
+            views:{
+                'header':{
+                    templateUrl:'tpls/header.html'
+                },
+                'navside':{
+                    templateUrl:'tpls/navside.html'
+                },
+                '':{
+                    templateUrl:'tpls/coursereview.html'
                 }
             }
         })

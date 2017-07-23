@@ -1,4 +1,4 @@
-/**
+                /**
  * 基础信息模块
  */
 var baseMod = angular.module('BaseMod',[]);
@@ -18,7 +18,7 @@ baseMod
  */
 var courseMod = angular.module('CourseMod',[]);
 courseMod
-    .factory('CourseService',['$q','$http',function($q,$http){
+    .factory('CourseQueryService',['$q','$http',function($q,$http){
         var deferredCourse = $q.defer();
         var url = "selCou!query2.action";
         var params = {};
@@ -36,7 +36,152 @@ courseMod
             })
         return deferredCourse.promise;
     }])
-    .controller('CourseDealCtrl',['$scope','$http','$stateParams','$state','CourseService',function($scope,$http,$stateParams,$state,CourseService){
+    /**
+     * 首页课程管理页面 home.html
+     */
+    .controller('CourseShowCtrl',['$scope','$http','CourseQueryService',function($scope,$http,CourseQueryService){
+         CourseQueryService.then(function(objData){
+            if(objData.success){
+                $scope.courseList = objData.dataList;
+            }else{
+                var errTypeList = ['','已知错误','未知错误'];
+                alert('错误类型：'+errTypeList[objData.type]+',错误信息：'+objData.message);
+            }
+        })
+        //获取待选课程信息
+        $scope.courseStateList = ['','','开启','关闭','完成'];
+        $scope.courseAuditList = ['','未审核','已审核'];
+        $scope.courseTypeList = [];
+        //获取课程类别信息
+        var url = 'baseWebDat';
+        var params = {'f':'uxCode','codeType':11,'simple':0};
+        $http({'method':'get','url':url,'params':params})
+            .then(function(res){
+                var objData = res.data;
+                if(typeof(objData.success) !== 'undefined'){
+                    var errTypeList = ['','已知错误','未知错误'];
+                    alert('错误类型：'+errTypeList[objData.type]+',错误信息：'+objData.message);                    
+                }else{
+                    //课程id转换为课程名
+                    for(var i=0;i<objData.dataList.length;i++){
+                        $scope.courseTypeList[objData.dataList[i].id] = objData.dataList[i].name;                        
+                    }
+                    $scope.getCourseList();
+                }
+            },function(res){
+                console.log("无法访问此页面...");
+            })
+        //获取课程信息
+        $scope.getCourseList = function(){
+            var url = "selCou!query2.action";
+            var params = {};
+            $http({'method':'get','url':url,'params':params})
+                .then(function(res){
+                    var objData = res.data;        
+                    if(objData.success){
+                        $scope.courseList = objData.dataList;
+                    }else{
+                        var errTypeList = ['','已知错误','未知错误'];
+                        alert('错误类型：'+errTypeList[objData.type]+',错误信息：'+objData.message);
+                    }
+                },function(){
+                    console.log()
+                })
+        }
+        //获取课程详细信息
+        $scope.viewCourse = function(courseId){
+            $scope.maskPop = {'display':'block'};
+            $scope.detailCourse = {'display':'block'};
+            var couListLen = $scope.courseList.length;
+            for(var i=0;i<couListLen;i++){
+                if($scope.courseList[i].selCouId == courseId){
+                    var curCourseObj = $scope.courseList[i];
+                    break;
+                }
+                
+            }
+            $scope.courseNO = curCourseObj.couNO;
+            $scope.courseName = curCourseObj.couName;
+            $scope.courseMemo = curCourseObj.couExplain;
+            $scope.courseType = $scope.courseStateList[curCourseObj.couState]
+            $scope.credit1 = curCourseObj.credit1;
+            $scope.credit2 = curCourseObj.credit2;
+            $scope.credit3 = curCourseObj.credit3;
+            $scope.lvRate1 = curCourseObj.lvRate1;
+            $scope.lvRate2 = curCourseObj.lvRate2;
+            $scope.lvRate3 = curCourseObj.lvRate3;
+            $scope.creditMin = curCourseObj.creditMin;
+            $scope.manMin = curCourseObj.manMin;
+            $scope.manMax = curCourseObj.manMax;
+            $scope.boyMin = curCourseObj.boyMin;
+            $scope.boyMax = curCourseObj.boyMax;
+            $scope.girlMin = curCourseObj.girlMin;
+            $scope.girlMax = curCourseObj.girlMax;
+            $scope.courseTeacher = curCourseObj.couThrNms;
+            $scope.parentName = '无';         
+            $scope.socName = curCourseObj.socNms;
+            $scope._terms = curCourseObj.termNms;
+            $scope._grades = curCourseObj.gradeNms;
+            $scope._classes = curCourseObj.claNms;            
+            $scope.auditState = $scope.courseAuditList[curCourseObj.audit];
+        }
+        //关闭课程详细页面
+        $scope.closePop = function(){
+            $scope.maskPop = {'display':'none'};
+            $scope.detailCourse = {'display':'none'};
+        }
+        //删除待选课程
+        $scope.deleteCourse = function(courseId){
+            var curCourseObj = [];
+            var objList = $scope.courseList;
+            var objLen = objList.length;
+            for(var i=0;i<objLen;i++){
+                if(objList[i].selCouId == courseId){
+                    curCourseObj = objList[i];
+                }
+            }
+            if(curCourseObj.couState == 2 || curCourseObj.couState == 3){
+                alert('您无法删除本课程，请更改课程状态为完成后，再次删除！');
+                return;
+
+            }
+            var url = 'selCou!del.action';
+            var params = {'selCouIds':courseId};            
+            $http({'method':'get','url':url,'params':params})
+                .then(function(res){
+                    var objData = res.data;
+                    if(objData.success){
+                        $scope.getCourseList();
+                        alert('删除课程成功！')                        
+                    }else{
+                        var errTypeList = ['','已知错误','未知错误'];
+                        alert('错误类型：'+errTypeList[objData.type]+',错误信息：'+objData.message);
+                    }
+                })
+        }
+        //设置课程状态
+        $scope.changeCourseState = function(courseId,statetype,state){
+            var url = 'selCou!chState.action';
+            if(statetype == "CourseState")
+                var params = {'selCouIds':courseId,"couState":state};
+            else
+                var params = {'selCouIds':courseId,"audit":state};
+            $http({'method':'get','url':url,'params':params})
+                .then(function(res){
+                    var objData = res.data;
+                    if(objData.success){
+                        $scope.getCourseList();                    
+                    }else{
+                        var errTypeList = ['','已知错误','未知错误'];
+                        alert('错误类型：'+errTypeList[objData.type]+',错误信息：'+objData.message);
+                    }
+                },function(){
+
+                })
+        }
+         
+    }])
+    .controller('CourseDealCtrl',['$scope','$http','$stateParams','$state','CourseQueryService',function($scope,$http,$stateParams,$state,CourseQueryService){
         $scope.xkpId = $stateParams.xkpId;//获取参数选课计划id
         $scope.courseId = $stateParams.courseId;
         $scope.parentCourseId = '';//初始化父课程id,在新增模式下为无
@@ -49,9 +194,7 @@ courseMod
         $scope.gradeIds = '';
         $scope.subCourseMode = false;//设置子课程模式，true为子课程模式，false为普通编辑模式
         //判断是否编辑模式
-        console.log('Initial...'+$scope.gradeIds);
         $scope.saveCourse = function(){
-            console.log($scope.gradeIds+'in saveCourse');
             var url = 'selCou!newRec.action';
             var params = {
                 'xkpId':$scope.xkpId,
@@ -77,6 +220,7 @@ courseMod
                 'socIds':$scope.socialOrgList.toString(),
                 'termIds':$scope.termIdList.toString(),
                 'grades':$scope.gradeIds,
+                'graCreMins':'',
                 'claIds':$scope.selectedClassIdList.toString().replace(/class/g,'')
             }
             $http({'method':'get','url':url,'params':params})
@@ -268,7 +412,7 @@ courseMod
         }
         if($scope.courseId){//编辑模式
             var editableObj = {};
-            CourseService.then(function(data){
+            CourseQueryService.then(function(data){
                 $scope.courseList = data.dataList;
                 var objList = $scope.courseList;
                 var objLen = objList.length;
@@ -321,19 +465,17 @@ courseMod
         $scope.courseStateList = ['','','开启','关闭','完成'];
         $scope.courseAuditList = ['','未审核','已审核'];
         $scope.courseTypeList = [];
-        console.log('haflafa');
         //获取课程类别信息
         var url = 'baseWebDat';
         var params = {'f':'uxCode','codeType':11,'simple':0};
         $http({'method':'get','url':url,'params':params})
             .then(function(res){
                 var objData = res.data;
-                console.log(objData);
                 if(typeof(objData.success) !== 'undefined'){
                     var errTypeList = ['','已知错误','未知错误'];
                     alert('错误类型：'+errTypeList[objData.type]+',错误信息：'+objData.message);                    
                 }else{
-                    //课程id转换未课程名
+                    //课程id转换为课程名
                     for(var i=0;i<objData.dataList.length;i++){
                         $scope.courseTypeList[objData.dataList[i].id] = objData.dataList[i].name;                        
                     }
@@ -407,6 +549,76 @@ courseMod
                         alert('错误类型：'+errTypeList[objData.type]+',错误信息：'+objData.message);
                     }
                 })
+        }
+        /**
+         * 评价课程
+         */
+        //获取系统定义的评语等级
+        $scope.thrCommentLevelList = [];
+        $scope.getCommentLevelList = function(){            
+            var url = 'baseWebDat?f=uxCode&codeType=82'
+            var params = {};
+            $http({'method':'get','url':url,'params':params})
+                .then(function(res){
+                    var objData = res.data;
+                    $scope.thrCommentLevelList = objData;                         
+                },function(){
+
+                })
+        }
+        $scope.getCommentLevelList();
+        $scope.remarkValueList = [];//评语等级对应的数值
+        $scope.remarkNameList = [];//评语等级的名称
+        $scope.curSelCouId = '';//当前选课课程id
+        $scope.curTermId = '';//当前选课的学期id
+        //打开评语弹窗并作初始化
+        $scope.reviewCourse = function(couName,termId,selCouId){
+            for(var i=1;i<$scope.thrCommentLevelList.length;i++){
+                if($scope.remarkValueList.indexOf($scope.thrCommentLevelList[i][0]) == -1)
+                    $scope.remarkValueList.push($scope.thrCommentLevelList[i][0]);
+                if($scope.remarkNameList.indexOf($scope.thrCommentLevelList[i][1]) == -1)
+                    $scope.remarkNameList.push($scope.thrCommentLevelList[i][1]);
+            }
+            $scope.editableReview = {'display':'block'};
+            $scope.maskPop = {'display':'block'}
+            $scope.curSelCouId = selCouId;
+            $scope.curTermId = termId;
+            $scope.curCouName = couName;//课程名称
+        }
+        //关闭弹窗
+         $scope.closePop = function(){            
+            $scope.maskPop = {'display':'none'};
+            $scope.editableReview = {'display':'none'};
+        }
+        $scope.saveReview = function(){
+            var url = 'selCouEval!upRec.action';//管理员操作评价记录
+            //var url = 'selCouEval!myEval.action';//教师自评、机构评价
+            //var url = 'selCouEval!memEval.action';//专业委员评价
+            var params = {
+                'selCouId':$scope.curSelCouId,
+                'termId':$scope.curTermId,
+                'selfEval':$scope.thrRemarkLv,
+                'selfEvalTxt':$scope.thrContent,
+                'socEval':$scope.socRemarkLv,
+                'socEvalTxt':$scope.socContent,
+                'schEval':$scope.schRemarkLv,
+                'schEvalTxt':$scope.schContent
+            }
+            $http({'method':'get','url':url,'params':params})
+                .then(function(res){
+                    var objData = res.data;
+                    if(objData.success){
+                        $scope.editableReview = {'display':'none'};
+                        $scope.maskPop = {'display':'none'}
+                        alert('评语操作成功！');
+                        
+                    }else{
+                        var errTypeList = ['','已知错误','未知错误'];
+                        alert('错误类型：'+errTypeList[objData.type]+',错误信息：'+objData.message);
+                    }               
+                },function(){
+
+                })            
         }               
         }])
         
@@ -1055,10 +1267,13 @@ courseMod
          * 保存教师对于学生的评价
          */
         $scope.saveStuRemark = function(){
-            var url = "stuCouEval!thrEvalStu.action";            
+            //var url = "stuCouEval!thrEvalStu.action";//教师对学生的评价
+            var url = 'stuCouEval!upRec.action';//管理员评价            
             var params = {
                     'stuCouId':$scope.stuCouId,
-                    'evalStu':$scope.radioRemarkLv
+                    'evalStu':$scope.radioRemarkLv,
+                    'evalStuTxt':$scope.remarkContent,
+                    'credit':$scope.studentcredit
                 }            
             $http({'method':'get','url':url,'params':params})
                 .then(function(res){
@@ -1066,16 +1281,20 @@ courseMod
                     if(objData.success)
                     {
                         //$scope.getStuCouResult();
-                        alert("成功新增了1条学生选课结果");                        
+                        $scope.maskPop = {'display':'none'}
+                        $scope.stuRemark = {'display':'none'};
+                        alert("评价学生成功！");                        
                     }else{
                         var errTypeList = ['','已知错误','未知错误'];
                         alert('错误类型：'+errTypeList[objData.type]+',错误信息：'+objData.message);
                     }
-                    $scope.radioRemarkLv = '';//初始化，表示默认不选中任何评价等级
+                    
                 },function(res){
-                    console.log("无法访问此页面...");
-                    $scope.radioRemarkLv = '';//初始化，表示默认不选中任何评价等级
+                    console.log("无法访问此页面...");                    
                 })
+                $scope.radioRemarkLv = '';//初始化，表示默认不选中任何评价等级
+                $scope.remarkContent = '';
+                $scope.studentcredit = '';
         }      
         /**
          * 教师对学生进行评价
@@ -1170,37 +1389,39 @@ courseMod
         //获取待选课程信息
         $scope.courseStateList = ['','','开启','关闭','完成'];
         $scope.courseAuditList = ['','未审核','已审核'];
-        $scope.courseTypeList = [];
-        console.log('haflafa');
-        //获取课程类别信息
-        var url = 'baseWebDat';
-        var params = {'f':'uxCode','codeType':11,'simple':0};
-        $http({'method':'get','url':url,'params':params})
-            .then(function(res){
-                var objData = res.data;
-                console.log(objData);
-                if(typeof(objData.success) !== 'undefined'){
-                    var errTypeList = ['','已知错误','未知错误'];
-                    alert('错误类型：'+errTypeList[objData.type]+',错误信息：'+objData.message);                    
-                }else{
-                    //课程id转换未课程名
-                    for(var i=0;i<objData.dataList.length;i++){
-                        $scope.courseTypeList[objData.dataList[i].id] = objData.dataList[i].name;                        
-                    }
-                    $scope.getCourseList();
-                }
-            },function(res){
-                console.log("无法访问此页面...");
-            })
+        $scope.courseTypeList = [];       
         //获取课程信息
-        $scope.getCourseList = function(){
-            var url = "selCou!query2.action";
+        $scope.getReviewList = function(){
+            var url = "selCouEval!query2.action";
             var params = {};
             $http({'method':'get','url':url,'params':params})
                 .then(function(res){
                     var objData = res.data;        
                     if(objData.success){
-                        $scope.courseList = objData.dataList;
+                        $scope._reviewList = objData.dataList;
+                        //获取系统定义的评语等级
+                        var url = 'baseWebDat?f=uxCode&codeType=82';
+                        var params = {};
+                        $http({'method':'get','url':url,'params':params})
+                            .then(function(res){
+                                var objData = res.data;
+                                $scope.thrCommentLevelList = objData;
+                                rvListLen = $scope._reviewList.length;
+                                var _remarkNameList = [];
+                                for(var j=0;j<$scope.thrCommentLevelList.length;j++){
+                                    _remarkNameList.push($scope.thrCommentLevelList[j][1]);
+                                }
+                        for(var i=0;i<rvListLen;i++){
+                            $scope._reviewList[i].schEval = _remarkNameList[parseInt($scope._reviewList[i].schEval)/2-1];
+                            $scope._reviewList[i].socEval = _remarkNameList[parseInt($scope._reviewList[i].socEval)/2-1];
+                            $scope._reviewList[i].selfEval = _remarkNameList[parseInt($scope._reviewList[i].selfEval)/2-1];
+                        }
+                        $scope.reviewList = $scope._reviewList;
+                        $scope._reviewList = {};                                  
+                            },function(){
+
+                            })                        
+                       
                     }else{
                         var errTypeList = ['','已知错误','未知错误'];
                         alert('错误类型：'+errTypeList[objData.type]+',错误信息：'+objData.message);
@@ -1209,6 +1430,7 @@ courseMod
                     console.log()
                 })
         }
+        $scope.getReviewList();//获取评语列表
         //新增待选课程的评语
         $scope.addCouReview = function(){
             
@@ -1216,7 +1438,7 @@ courseMod
         //删除待选课程的评语
         $scope.deleteCouReview = function(courseId){
             var curCourseObj = [];
-            var objList = $scope.courseList;
+            var objList = $scope.reviewList;
             var objLen = objList.length;
             for(var i=0;i<objLen;i++){
                 if(objList[i].selCouId == courseId){
@@ -1241,14 +1463,43 @@ courseMod
                         alert('错误类型：'+errTypeList[objData.type]+',错误信息：'+objData.message);
                     }
                 })
-        }
+        }        
+        $scope.remarkNameList = [];//评语等级的名称      
         //修改待选课程的评语
         $scope.modifyCouReview = function(){
 
         }
         //查看待选课程评语
-        $scope.detailCouReview = function(){
-
+        $scope.detailCouReview = function(courseId,courseName,termName,courseTeacher){
+            $scope.maskPop = {'display':'block'};
+            $scope.detailReview = {'display':'block'};
+            for(var i=0;i<$scope.thrCommentLevelList.length;i++){                
+                if($scope.remarkNameList.indexOf($scope.thrCommentLevelList[i][1]) == -1)
+                    $scope.remarkNameList.push($scope.thrCommentLevelList[i][1]);
+            }          
+            
+            $scope._courseName = courseName;
+            $scope._termName = termName;
+            $scope._courseTeacher = courseTeacher;                    
+                   
+            //根据课程id找出课程评价
+            for(var i=0;i<$scope.reviewList.length;i++)
+                if($scope.reviewList[i].selCouIds = courseId){
+                    var objCouReview = $scope.reviewList[i];
+                    break;
+                }
+            //把评价数字转化为文本
+            $scope.thrRemarkLv = objCouReview.selfEval
+            $scope.socRemarkLv = objCouReview.socEval
+            $scope.schRemarkLv = objCouReview.schEval;
+            //评价内容
+            $scope.thrRemark = objCouReview.selfEvalTxt;
+            $scope.socRemark = objCouReview.socEvalTxt;
+            $scope.schRemark = objCouReview.schEvalTxt;
+        }
+        $scope.closePop = function(){
+            $scope.maskPop = {'display':'none'};
+            $scope.detailReview = {'display':'none'};
         }               
         }])
         

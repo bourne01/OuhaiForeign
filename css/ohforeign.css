@@ -198,7 +198,7 @@ a,a:hover,a:visited,a:active,a:link{
     color: #fff;
 }
 
-
+/*
 *课程展示区---标题视图
 */
 .courseplanadd .btn{
@@ -420,6 +420,35 @@ a,a:hover,a:visited,a:active,a:link{
 .courselistview th{
     text-align: center;
 }
+.detailcoursepop{
+    position: fixed;
+    top: 13%;
+    left: 15%;
+    z-index: 2;
+    width: 75%;
+    border: 1px solid #2bbb59;
+    display:none;
+    background-color: #fff;
+}
+.detailcourse{
+    overflow-y: auto;
+    height:500px;
+}
+.viewcontent textarea.form-control {
+    display: inline-block!important;
+    width: 80%;
+    height: 80px;
+    overflow-y: auto;
+}
+.detailcourse .coursename{
+    text-align: center;
+    font-family: Microsoft Yahei;
+    font-size:14px;
+    margin-top:10px;
+    margin-bottom:10px;
+    font-weight: 800;
+}
+
 /*
 *新增课程
 */
@@ -889,6 +918,7 @@ a,a:hover,a:visited,a:active,a:link{
 .tasklistview .newlyaddpop{
     width:47%!important;
 }
+
 /*
 *选课结果页面courseresult.html
 */
@@ -949,3 +979,98 @@ td.col-right{
     height:450px;
     overflow-y: auto;
 }
+/*
+*课程管理页面coursemanage.html
+*/
+.coursereviewpop{
+    position: fixed;
+    top: 15%;
+    left: 27%;
+    z-index: 2;
+    width: 48%;
+    border: 1px solid #2bbb59;
+    display: none;
+    background-color: #fff;
+}
+.coursereview textarea.form-control {
+    display: inline-block!important;
+    width: 80%;
+    height: 80px;
+    overflow-y: auto;
+}
+.coursereview .coursename{
+    text-align: center;
+    font-family: Microsoft Yahei;
+    font-size:14px;
+    margin-top:10px;
+    margin-bottom:10px;
+    font-weight: 500;
+}
+/*
+*课程评价页面
+*/
+.viewreviewpop{
+    position: fixed;
+    top: 15%;
+    left: 27%;
+    z-index: 2;
+    width: 48%;
+    border: 1px solid #2bbb59;
+    display: none;
+    background-color: #fff;
+}
+.viewcontent{
+    overflow-y: auto;
+    height:500px;
+}
+.viewcontent textarea.form-control {
+    display: inline-block!important;
+    width: 80%;
+    height: 80px;
+    overflow-y: auto;
+}
+.viewcontent .coursename{
+    text-align: center;
+    font-family: Microsoft Yahei;
+    font-size:14px;
+    margin-top:10px;
+    margin-bottom:10px;
+    font-weight: 800;
+}
+.radius{
+    -webkit-border-radius:10px;  
+    -moz-border-radius:10px;  
+    border-radius:10px;  
+    width:376px;
+    height:44px;
+    background-color: #A6DADC;
+    line-height: 44px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;           
+}
+.left:before{  
+    position:absolute;  
+    content:"\00a0";  
+    width:0px;  
+    height:0px;  
+    border-width:8px 18px 8px 0;  
+    border-style:solid;  
+    border-color:transparent #A6DADC transparent transparent;  
+    top:15px;  
+    left:-18px;  
+    }  
+.right:before{  
+    position:absolute;  
+    content:"\00a0";  
+    display:inline-block;  
+    width:0px;  
+    height:0px;  
+    border-width:8px 0px 8px 18px;  
+    border-style:solid;  
+    border-color:transparent transparent transparent #A6DADC;  
+    left:374px;  
+    top:15px;                     
+} 
